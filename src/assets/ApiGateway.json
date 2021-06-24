@@ -1,0 +1,43 @@
+[
+
+    {
+      "controlType": "textbox",
+      "key": "description",
+      "label": "Description",
+      "required": true,
+      "order": 1
+    },
+  {
+      "controlType": "dropdown",
+      "key": "region",
+      "label": "Region",
+      "options": [
+        {"key": "usa",  "value": "India"},
+        {"key": "br",  "value": "Brazil"},
+        {"key": "other",   "value": "Other"}
+      ],
+      "order": 3
+    },
+
+    {
+      "controlType": "radio",
+      "key": "sex",
+      "label": "Sex",
+      "type": "radio",
+      "options": [
+        {"key": "male",  "value": "Male"},
+        {"key": "female",  "value": "Female"}
+      ],
+      "order": 5
+    },
+
+    {
+      "controlType": "textarea",
+      "key": "message",
+      "label": "Mesage",
+      "type": "textarea",
+      "required": true,
+
+      "order": 6
+    }
+  ]

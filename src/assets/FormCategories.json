@@ -1,0 +1,47 @@
+[
+    {
+        "key":"firstname",
+        "label":"First Name",
+        "controlType":"textbox",
+        "required":true,
+        "validator": "firstname",
+        "type":"textbox",
+        "order":1
+
+
+    },
+    {
+        "key":"lastname",
+        "label":"Last Name",
+        "controlType":"textbox",
+        "required":true,
+        "validator": "lastname",
+        "type":"textbox",
+        "order":2
+
+
+
+    },
+    {
+        "key":"mobilenumber",
+        "label":"Mobile Number",
+        "controlType":"textbox",
+        "required":true,
+        "validator": "mobilenumber",
+        "order": 3,
+        "type": "textbox"
+
+
+
+
+    },
+    {
+      "controlType": "textbox",
+      "key": "email",
+      "label": "Email",
+      "type": "email",
+      "required": true,
+      "validator": "email",
+      "order": 4
+    }
+]

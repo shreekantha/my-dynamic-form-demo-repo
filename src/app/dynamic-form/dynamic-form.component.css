@@ -1,0 +1,27 @@
+h1 {
+    color: Black;
+    font-family: verdana;
+    margin: 10px 10px;
+    padding: 10px 10px;
+    text-align: center;
+    background: #1abc9c;
+    font-size: 30px;
+  }
+
+  #form .row .col-md-12 div{
+    margin: 5px 10px !important;
+}
+
+#form .row{
+    width: 600px;
+    margin:auto;
+}
+
+button{
+    /* margin: 5px 10px; */
+    background:green;
+    margin: 10px 500px;
+    width:30%;
+    text-align:center;
+    color: black;
+}
