@@ -1,47 +1,46 @@
-[
-    {
-        "key":"firstname",
-        "label":"First Name",
-        "controlType":"textbox",
-        "required":true,
-        "validator": "firstname",
-        "type":"textbox",
-        "order":1
+{
+    "svcName": "Configure Amazon API Gateway",
+    "svcCode": "1001",
+    "description": "API Gateway",
+    "forms": [
+        {
+            "name": "Database Storage",
+            "description": "",
+            "fields":[
+                {
+                    "key":"storageamount",
+                    "label":"Storage amount",
+                    "controlType":"textbox",
+                    "required":true,
+                    "validator": "storageamount",
+                    "type":"textbox",
+                    "order":1
+            
+                },
+                {
+                    "controlType": "dropdown",
+                    "key": "frequency",
+                    "label": "Frequency",
+                    "options": [
+                      { "key": "usa", "value": "Per Day" },
+                      { "key": "br", "value": "Per Week" },
+                      { "key": "other", "value": "Per Month" }
+                    ],
+                    "order": 2
+                },
+                {
+                    "key":"numberofwrites",
+                    "label":"Number of writes per second",
+                    "controlType":"textbox",
+                    "required":true,
+                    "order": 3,
+                    "type": "textbox"
+                        
+                }
 
-
-    },
-    {
-        "key":"lastname",
-        "label":"Last Name",
-        "controlType":"textbox",
-        "required":true,
-        "validator": "lastname",
-        "type":"textbox",
-        "order":2
-
-
-
-    },
-    {
-        "key":"mobilenumber",
-        "label":"Mobile Number",
-        "controlType":"textbox",
-        "required":true,
-        "validator": "mobilenumber",
-        "order": 3,
-        "type": "textbox"
-
-
-
-
-    },
-    {
-      "controlType": "textbox",
-      "key": "email",
-      "label": "Email",
-      "type": "email",
-      "required": true,
-      "validator": "email",
-      "order": 4
-    }
-]
+            ]
+        }
+    ]
+}
+      
+    

@@ -43,6 +43,7 @@ export class FormfieldControlService {
   toServiceFormGroup(category: ServiceFormCategory): FormGroup {
     const group: any = {};
 
+    console.log("category:{}",category);
     category.forms.forEach((form) => {
       form.fields.forEach((input) => {
         let validator: ValidatorFn[] = input.required

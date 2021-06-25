@@ -1,5 +1,46 @@
-<button type="button" (click)="onClick('/assets/DynamicFormData.json')">1</button>
-<button type="button" (click)="onClick('/assets/ApiGateway.json')">2</button>
-<button type="button" (click)="onClick('/assets/FormCategories.json')">3</button>
-<button type="button" (click)="onClick('https://google.com')">4</button>
-<button type="button" (click)="onClick('https://google.com')">5</button>
+<div class = "container">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card">
+                <h5 class="card-header">Amazon API Gateway</h5>
+                <div class="card-body">
+                  <p class="card-text">Amazon API Gateway is a fully managed service that makes it easy for developers to create, publish, maintain, monitor, and secure APIs at any scale. APIs act as the front door for applications to access data, business logic, 
+                      or functionality from your backend services</p>
+                      <button class="btn btn-primary" type="button" (click)="onClick('/assets/ApiGateway.json')">Configure</button>
+                    </div>
+              </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card">
+                <h5 class="card-header">Amazon Athena</h5>
+                <div class="card-body">
+                  <p class="card-text">Amazon Athena is an interactive query service that makes it easy to analyze data in Amazon S3 using standard SQL. Athena is serverless, so there is no infrastructure to manage, 
+                      and you pay only for the queries that you run.</p>
+                      <button class="btn btn-primary" type="button" (click)="onClick('/assets/DynamicFormData.json')">Configure</button>
+                    </div>
+              </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card">
+                <h5 class="card-header">Amazon Carrier IP</h5>
+                <div class="card-body">
+                  <p class="card-text">A Carrier IP address is the address that you assign to a network interface, which resides in a s
+                      ubnet in a Wavelength Zone (for example an EC2 instance)</p>
+                      <button class="btn btn-primary" type="button" (click)="onClick('/assets/FormCategories.json')">Configure</button>
+                    </div>
+              </div>
+            
+        </div>
+        <div class="col-md-3">
+            <div class="card">
+                <h5 class="card-header">Amazon API Gateway</h5>
+                <div class="card-body">
+                  <p class="card-text">Amazon API Gateway is a fully managed service that makes it easy for developers to create, publish, maintain, monitor, and secure APIs at any scale. APIs act as the front door for applications to access data, business logic, 
+                      or functionality from your backend services</p>
+                      <button class="btn btn-primary" type="button" (click)="onClick('/assets/ApiGateway.json')">Configure</button>
+                    </div>
+              </div>
+        </div>
+
+</div>
+</div>

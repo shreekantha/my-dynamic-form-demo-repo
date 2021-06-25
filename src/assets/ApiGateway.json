@@ -2,51 +2,108 @@
   "svcName": "Configure Amazon API Gateway",
   "svcCode": "1001",
   "description": "API Gateway",
-  "services": [
+  "forms": [
     {
       "name": "HTTP APIs",
       "description": "Select the units, number, and frequency for HTTP",
-      "dimensions": [
+      "fields": [
         {
           "controlType": "textbox",
-          "key": "description",
-          "label": "Description",
+          "key": "requests",
+          "label": "Requests",
           "required": true,
-          "order": 1
+          "order": 2
         },
         {
           "controlType": "dropdown",
-          "key": "region",
-          "label": "Region",
+          "key": "httpapi",
+          "label": "HTTP API requests units",
           "options": [
-            { "key": "usa", "value": "India" },
-            { "key": "br", "value": "Brazil" },
-            { "key": "other", "value": "Other" }
+            { "key": "usa", "value": "ExactNumber" },
+            { "key": "br", "value": "Thousands" },
+            { "key": "other", "value": "Millions" }
+          ],
+          "order": 1
+        },
+
+        {
+          "controlType": "dropdown",
+          "key": "frequency",
+          "label": "Frequency",
+          "type": "dropdown",
+          "options": [
+            { "key": "persecond", "value": "Per Second" },
+            { "key": "perminute", "value": "Per Minute" }
           ],
           "order": 3
         },
 
         {
-          "controlType": "radio",
-          "key": "sex",
-          "label": "Sex",
-          "type": "radio",
-          "options": [
-            { "key": "male", "value": "Male" },
-            { "key": "female", "value": "Female" }
-          ],
+          "controlType": "textbox",
+          "key": "averagesize",
+          "label": "Average size of each request",
+          "type": "textbox",
+          "required": true,
+
+          "order": 4
+        },
+        {
+          "controlType": "textbox",
+          "key": "requestsize",
+          "label": "Request Size",
+          "type": "textbox",
+          "required": true,
+
           "order": 5
+        }
+      ]
+    },
+    
+    {
+      "name": "Rest APIs",
+      "description": "Select the units, number, and frequency for HTTP",
+      "fields": [
+        {
+          "controlType": "textbox",
+          "key": "description",
+          "label": "Requests",
+          "required": true,
+          "order": 2
+        },
+        {
+          "controlType": "dropdown",
+          "key": "region",
+          "label": "Rest API requests units",
+          "options": [
+            { "key": "usa", "value": "ExactNumber" },
+            { "key": "br", "value": "Thousands" },
+            { "key": "other", "value": "Millions" }
+          ],
+          "order": 1
         },
 
         {
-          "controlType": "textarea",
+          "controlType": "dropdown",
+          "key": "frequency",
+          "label": "Frequency",
+          "type": "dropdown",
+          "options": [
+            { "key": "persecond", "value": "Per Second" },
+            { "key": "perminute", "value": "Per Minute" }
+          ],
+          "order": 3
+        },
+
+        {
+          "controlType": "textbox",
           "key": "message",
-          "label": "Mesage",
-          "type": "textarea",
+          "label": "Cache Memory Size",
+          "type": "textbox",
           "required": true,
 
-          "order": 6
+          "order": 4
         }
+        
       ]
     }
   ]

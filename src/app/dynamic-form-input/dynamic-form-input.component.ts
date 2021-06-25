@@ -11,7 +11,12 @@ export class DynamicFormInputComponent {
   @Input() input: FormField<string>;
   @Input() form: FormGroup;
 
+  constructor(){
+    console.log("---------",this.input);
+
+  }
   get isValid() {
+
     return this.form.controls[this.input.key].valid;
   }
 }
