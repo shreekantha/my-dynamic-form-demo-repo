@@ -1,27 +1,29 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { FormField } from 'src/environments/form-field';
+import { ServiceFormCategory } from '../common/service-form-category';
 import { FormfieldControlService } from '../formfield-control.service';
 
 @Component({
   selector: 'app-dynamic-form',
   templateUrl: './dynamic-form.component.html',
-  styleUrls: ['./dynamic-form.component.css']
+  styleUrls: ['./dynamic-form.component.css'],
 })
 export class DynamicFormComponent implements OnInit {
-
-  @Input() formFields: FormField<string>[] = [];
+  // @Input() formFields: FormField<string>[] = [];
+  @Input() serviceFormCatagory: ServiceFormCategory;
   form: FormGroup;
   payLoad = ' ';
 
-  constructor(private formfieldService: FormfieldControlService) { }
+  constructor(private formfieldService: FormfieldControlService) {}
 
   ngOnInit(): void {
-    this.form = this.formfieldService.toFormGroup(this.formFields);
+    this.form = this.formfieldService.toServiceFormGroup(
+      this.serviceFormCatagory
+    );
   }
 
   onSubmit() {
     this.payLoad = JSON.stringify(this.form.getRawValue());
-    this.form.reset()
+    this.form.reset();
   }
 }
