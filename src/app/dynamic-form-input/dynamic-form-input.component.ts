@@ -19,4 +19,9 @@ export class DynamicFormInputComponent {
 
     return this.form.controls[this.input.key].valid;
   }
+
+  myFunction(input){
+    console.log("input------>",input);
+
+  }
 }

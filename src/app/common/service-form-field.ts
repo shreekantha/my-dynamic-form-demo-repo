@@ -7,6 +7,8 @@ export class FormField<T> {
     order: number;
     controlType: string;
     type: string;
+    rowDivision:number;
+    dependency:boolean;
     options: { key: string; value: string }[];
   
     constructor(
@@ -19,6 +21,8 @@ export class FormField<T> {
         order?: number;
         controlType?: string;
         type?: string;
+        rowDivision?:number;
+        dependency?:boolean;
         options?: { key: string; value: string }[];
       } = {}
     ) {
@@ -28,8 +32,10 @@ export class FormField<T> {
       this.required = !!options.required;
       this.validator = options.validator || "";
       this.order = options.order === undefined ? 1 : options.order;
+      this.rowDivision = options.rowDivision === undefined ? 1:options.rowDivision;
       this.controlType = options.controlType || "";
       this.type = options.type || "";
+      this.dependency = !!options.dependency;
       this.options = options.options || [];
     }
   }

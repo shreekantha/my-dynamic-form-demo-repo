@@ -14,7 +14,9 @@
                     "required":true,
                     "validator": "storageamount",
                     "type":"textbox",
-                    "order":1
+                    "order":1,
+                    "rowDivision":2
+
             
                 },
                 {
@@ -26,7 +28,20 @@
                       { "key": "br", "value": "Per Week" },
                       { "key": "other", "value": "Per Month" }
                     ],
-                    "order": 2
+                    "order": 2,
+                    "rowDivision":2
+
+                },
+                {
+                    "key":"numberofreads",
+                    "label":"Number of reads per second",
+                    "controlType":"textbox",
+                    "required":true,
+                    "order": 3,
+                    "type": "textbox",
+                    "rowDivision":1
+
+                        
                 },
                 {
                     "key":"numberofwrites",
@@ -34,9 +49,11 @@
                     "controlType":"textbox",
                     "required":true,
                     "order": 3,
-                    "type": "textbox"
+                    "type": "textbox",
+                    "rowDivision":1
                         
                 }
+
 
             ]
         }

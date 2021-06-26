@@ -1,6 +1,5 @@
 
 <section>
-  
 
 <form id = "form" [formGroup]="form" class="form-group">
     <div [ngSwitch]="input.controlType">
@@ -17,8 +16,8 @@
 
       <div *ngSwitchCase="'dropdown'">
         <label [attr.for]="input.key">{{input.label}}</label>
-        <select class="custom-select" [id]="input.key" [formControlName]="input.key">
-          <option *ngFor="let opt of input.options" [value]="opt.key">{{opt.value}}</option>
+        <select class="custom-select" [id]="input.key" [formControlName]="input.key" (change)="myFunction($event.target.value)">
+          <option *ngFor="let opt of input.options" [value]="opt.value">{{opt.value}}</option>
         </select>
         <div *ngIf = "form.get(input.key).dirty || form.get(input.key).touched"> 
             <small style= "color: red" *ngIf = "!form.get(input.key).valid">

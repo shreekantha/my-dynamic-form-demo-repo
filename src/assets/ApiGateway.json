@@ -12,7 +12,9 @@
           "key": "requests",
           "label": "Requests",
           "required": true,
-          "order": 2
+          "order": 2,
+          "rowDivision":1,
+          "dependency":false
         },
         {
           "controlType": "dropdown",
@@ -23,7 +25,10 @@
             { "key": "br", "value": "Thousands" },
             { "key": "other", "value": "Millions" }
           ],
-          "order": 1
+          "order": 1,
+          "rowDivision":2,
+          "dependency":true
+
         },
 
         {
@@ -35,7 +40,10 @@
             { "key": "persecond", "value": "Per Second" },
             { "key": "perminute", "value": "Per Minute" }
           ],
-          "order": 3
+          "order": 3,
+          "rowDivision":2,
+          "dependency":true
+
         },
 
         {
@@ -44,8 +52,10 @@
           "label": "Average size of each request",
           "type": "textbox",
           "required": true,
+          "order": 4,
+          "rowDivision":2,
+          "dependency":false
 
-          "order": 4
         },
         {
           "controlType": "textbox",
@@ -53,8 +63,9 @@
           "label": "Request Size",
           "type": "textbox",
           "required": true,
-
-          "order": 5
+          "rowDivision":2,
+          "order": 5,
+          "dependency":false
         }
       ]
     },
@@ -68,7 +79,9 @@
           "key": "description",
           "label": "Requests",
           "required": true,
-          "order": 2
+          "order": 2,
+          "rowDivision":1
+
         },
         {
           "controlType": "dropdown",
@@ -79,7 +92,9 @@
             { "key": "br", "value": "Thousands" },
             { "key": "other", "value": "Millions" }
           ],
-          "order": 1
+          "order": 1,
+          "rowDivision":2
+
         },
 
         {
@@ -91,7 +106,9 @@
             { "key": "persecond", "value": "Per Second" },
             { "key": "perminute", "value": "Per Minute" }
           ],
-          "order": 3
+          "order": 3,
+          "rowDivision":2
+
         },
 
         {
@@ -100,6 +117,7 @@
           "label": "Cache Memory Size",
           "type": "textbox",
           "required": true,
+          "rowDivision":1,
 
           "order": 4
         }
