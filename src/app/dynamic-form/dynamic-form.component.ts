@@ -17,6 +17,7 @@ export class DynamicFormComponent implements OnInit {
   constructor(private formfieldService: FormfieldControlService) {}
 
   ngOnInit(): void {
+    console.log('serviceFormCatagory:', this.serviceFormCatagory);
     this.form = this.formfieldService.toServiceFormGroup(
       this.serviceFormCatagory
     );

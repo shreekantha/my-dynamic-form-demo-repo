@@ -43,27 +43,29 @@ export class FormfieldControlService {
   toServiceFormGroup(category: ServiceFormCategory): FormGroup {
     const group: any = {};
 
-    console.log("category:{}",category);
+    console.log('category:{}', category);
     category.forms.forEach((form) => {
-      form.fields.forEach((input) => {
-        let validator: ValidatorFn[] = input.required
-          ? [Validators.required]
-          : [];
-        switch (input.validator) {
-          case 'email':
-            validator.push(Validators.email);
-            break;
-          case 'mobilenumber':
-            validator.push(Validators.pattern('[6-9]\\d{9}'));
-            break;
-          default:
-            break;
-        }
-        group[input.key] =
-          validator.length > 0
-            ? new FormControl(input.value || '', validator)
-            : new FormControl(input.value || '');
-      });
+      form.groups.forEach((formgroup) =>
+        formgroup.fields.forEach((input) => {
+          let validator: ValidatorFn[] = input.required
+            ? [Validators.required]
+            : [];
+          switch (input.validator) {
+            case 'email':
+              validator.push(Validators.email);
+              break;
+            case 'mobilenumber':
+              validator.push(Validators.pattern('[6-9]\\d{9}'));
+              break;
+            default:
+              break;
+          }
+          group[input.key] =
+            validator.length > 0
+              ? new FormControl(input.value || '', validator)
+              : new FormControl(input.value || '');
+        })
+      );
     });
 
     return new FormGroup(group);

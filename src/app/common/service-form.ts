@@ -1,7 +1,7 @@
-import { FormField } from './service-form-field';
+import { ServiceFormFieldGroup } from './service-form-field-group';
 
 export class ServiceForm {
   name: string;
   description: string;
-  fields: FormField<string>[];
+  groups: ServiceFormFieldGroup[];
 }

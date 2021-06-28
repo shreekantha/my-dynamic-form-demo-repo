@@ -35,19 +35,8 @@
           ]
         },
         {
+          "order": 2,
           "fields": [
-            {
-              "controlType": "dropdown",
-              "key": "frequency",
-              "label": "Frequency",
-              "options": [
-                { "key": "perDay", "value": "Per Day" },
-                { "key": "perWeek", "value": "Per Week" },
-                { "key": "perMonth", "value": "Per Month" }
-              ],
-              "order": 2,
-              "rowDivision": 2
-            },
             {
               "key": "numberofreads",
               "label": "Number of reads per second",
@@ -69,10 +58,20 @@
           ]
         },
         {
+          "order": 3,
           "fields": [
             {
-              "key": "numberofwrites",
-              "label": "Number of writes per second",
+              "key": "user",
+              "label": "user name",
+              "controlType": "textbox",
+              "required": true,
+              "order": 3,
+              "type": "textbox",
+              "rowDivision": 1
+            },
+            {
+              "key": "email",
+              "label": "email name",
               "controlType": "textbox",
               "required": true,
               "order": 3,
