@@ -1,63 +1,87 @@
 {
-    "svcName": "Configure Amazon API Gateway",
-    "svcCode": "1001",
-    "description": "API Gateway",
-    "forms": [
+  "svcName": "Configure Amazon Aurora MySQL-Compatible",
+  "svcCode": "1001",
+  "description": "API Gateway",
+  "forms": [
+    {
+      "name": "Database Storage",
+      "description": "",
+      "groups": [
         {
-            "name": "Database Storage",
-            "description": "",
-            "fields":[
-                {
-                    "key":"storageamount",
-                    "label":"Storage amount",
-                    "controlType":"textbox",
-                    "required":true,
-                    "validator": "storageamount",
-                    "type":"textbox",
-                    "order":1,
-                    "rowDivision":2
-
-            
-                },
-                {
-                    "controlType": "dropdown",
-                    "key": "frequency",
-                    "label": "Frequency",
-                    "options": [
-                      { "key": "usa", "value": "Per Day" },
-                      { "key": "br", "value": "Per Week" },
-                      { "key": "other", "value": "Per Month" }
-                    ],
-                    "order": 2,
-                    "rowDivision":2
-
-                },
-                {
-                    "key":"numberofreads",
-                    "label":"Number of reads per second",
-                    "controlType":"textbox",
-                    "required":true,
-                    "order": 3,
-                    "type": "textbox",
-                    "rowDivision":1
-
-                        
-                },
-                {
-                    "key":"numberofwrites",
-                    "label":"Number of writes per second",
-                    "controlType":"textbox",
-                    "required":true,
-                    "order": 3,
-                    "type": "textbox",
-                    "rowDivision":1
-                        
-                }
-
-
-            ]
+          "order": 1,
+          "fields": [
+            {
+              "key": "storageamount",
+              "label": "Storage amount",
+              "controlType": "textbox",
+              "required": true,
+              "validator": "storageamount",
+              "type": "textbox",
+              "order": 1,
+              "rowDivision": 2
+            },
+            {
+              "controlType": "dropdown",
+              "key": "frequency",
+              "label": "Frequency",
+              "options": [
+                { "key": "perDay", "value": "Per Day" },
+                { "key": "perWeek", "value": "Per Week" },
+                { "key": "perMonth", "value": "Per Month" }
+              ],
+              "order": 2,
+              "rowDivision": 2
+            }
+          ]
+        },
+        {
+          "fields": [
+            {
+              "controlType": "dropdown",
+              "key": "frequency",
+              "label": "Frequency",
+              "options": [
+                { "key": "perDay", "value": "Per Day" },
+                { "key": "perWeek", "value": "Per Week" },
+                { "key": "perMonth", "value": "Per Month" }
+              ],
+              "order": 2,
+              "rowDivision": 2
+            },
+            {
+              "key": "numberofreads",
+              "label": "Number of reads per second",
+              "controlType": "textbox",
+              "required": true,
+              "order": 3,
+              "type": "textbox",
+              "rowDivision": 1
+            },
+            {
+              "key": "numberofwrites",
+              "label": "Number of writes per second",
+              "controlType": "textbox",
+              "required": true,
+              "order": 3,
+              "type": "textbox",
+              "rowDivision": 1
+            }
+          ]
+        },
+        {
+          "fields": [
+            {
+              "key": "numberofwrites",
+              "label": "Number of writes per second",
+              "controlType": "textbox",
+              "required": true,
+              "order": 3,
+              "type": "textbox",
+              "rowDivision": 1
+            }
+          ]
         }
-    ]
+      ]
+    }
+  ]
 }
-      
-    

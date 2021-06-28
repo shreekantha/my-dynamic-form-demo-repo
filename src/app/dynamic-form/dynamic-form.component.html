@@ -1,39 +1,61 @@
 <div class="container">
   <form (ngSubmit)="onSubmit()" [formGroup]="form">
-   
-    <div *ngFor="let service of serviceFormCatagory.forms" class="form-group">
-      <div class="card">
-        <div class="card-header">
-          <h1>{{service.name}}</h1>
-          <h3>{{service.description}}</h3>
-        </div>
-        <div class="card-body">
-          <div class="row">
+    <div class="row">
+      <div class="col-md-12">&nbsp;</div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <h3>{{ serviceFormCatagory.svcName }}</h3>
+        <!-- <label>{{ serviceFormCatagory.description }}</label> -->
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">&nbsp;</div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div
+          *ngFor="let service of serviceFormCatagory.forms"
+          class="form-group"
+        >
+          <div class="card">
+            <div class="card-header">
+              <h4>{{ service.name }}</h4>
+              <label>{{ service.description }}</label>
+            </div>
+            <div class="card-body">
+              <divv class="row">
+                <div class="col-md-12"></div>
+              </divv>
+              <div class="row">
+                <div
+                  *ngFor="let formField of service.fields"
+                  [ngClass]="{
+                    'col-sm-12 col-md-12': formField.rowDivision === 1,
+                    'col-sm-12 col-md-6': formField.rowDivision === 2,
+                    'col-sm-12 col-md-4': formField.rowDivision === 3,
+                    'form-group': true
+                  }"
+                >
+                  <!-- <div  class="form-group"> -->
 
-            <div *ngFor="let formField of service.fields" [ngClass]="{
-              'col-sm-12 col-md-12':formField.rowDivision === 1,
-              'col-sm-12 col-md-6':formField.rowDivision === 2,
-              'col-sm-12 col-md-4':formField.rowDivision === 3,
-              'form-group':true
-            }">
-            <!-- <div  class="form-group"> -->
-              
-              <app-dynamic-form-input [input]="formField" [form]="form"></app-dynamic-form-input>
-              
-              <!-- </div> -->
+                  <app-dynamic-form-input
+                    [input]="formField"
+                    [form]="form"
+                  ></app-dynamic-form-input>
+
+                  <!-- </div> -->
+                </div>
+              </div>
             </div>
           </div>
-
         </div>
       </div>
-      
     </div>
-    
-
-    <div class="form-group">
-      <div class="row Forms">
+    <div class="row">
+      <div class="form-group col-md-12 text-right">
         <button type="submit" class="btn btn-primary" [disabled]="form.invalid">
-          Save
+          Create Estimate
         </button>
       </div>
     </div>

@@ -5,7 +5,7 @@
   "forms": [
     {
       "name": "HTTP APIs",
-      "description": "Select the units, number, and frequency for HTTP",
+      "description": "Select the units, number, and frequency for HTTP API requests",
       "fields": [
         {
           "controlType": "textbox",
@@ -13,22 +13,21 @@
           "label": "Requests",
           "required": true,
           "order": 2,
-          "rowDivision":1,
-          "dependency":false
+          "rowDivision": 1,
+          "dependency": false
         },
         {
           "controlType": "dropdown",
           "key": "httpapi",
           "label": "HTTP API requests units",
           "options": [
-            { "key": "usa", "value": "ExactNumber" },
-            { "key": "br", "value": "Thousands" },
-            { "key": "other", "value": "Millions" }
+            { "key": "exactNumber", "value": "ExactNumber" },
+            { "key": "thousands", "value": "Thousands" },
+            { "key": "millions", "value": "Millions" }
           ],
           "order": 1,
-          "rowDivision":2,
-          "dependency":true
-
+          "rowDivision": 2,
+          "dependency": true
         },
 
         {
@@ -41,9 +40,8 @@
             { "key": "perminute", "value": "Per Minute" }
           ],
           "order": 3,
-          "rowDivision":2,
-          "dependency":true
-
+          "rowDivision": 2,
+          "dependency": true
         },
 
         {
@@ -53,9 +51,8 @@
           "type": "textbox",
           "required": true,
           "order": 4,
-          "rowDivision":2,
-          "dependency":false
-
+          "rowDivision": 2,
+          "dependency": false
         },
         {
           "controlType": "textbox",
@@ -63,16 +60,16 @@
           "label": "Request Size",
           "type": "textbox",
           "required": true,
-          "rowDivision":2,
+          "rowDivision": 2,
           "order": 5,
-          "dependency":false
+          "dependency": false
         }
       ]
     },
-    
+
     {
       "name": "Rest APIs",
-      "description": "Select the units, number, and frequency for HTTP",
+      "description": "Select the units, number, and frequency for Rest API requests",
       "fields": [
         {
           "controlType": "textbox",
@@ -80,21 +77,19 @@
           "label": "Requests",
           "required": true,
           "order": 2,
-          "rowDivision":1
-
+          "rowDivision": 1
         },
         {
           "controlType": "dropdown",
           "key": "region",
           "label": "Rest API requests units",
           "options": [
-            { "key": "usa", "value": "ExactNumber" },
-            { "key": "br", "value": "Thousands" },
-            { "key": "other", "value": "Millions" }
+            { "key": "exactNumber", "value": "ExactNumber" },
+            { "key": "thousands", "value": "Thousands" },
+            { "key": "millions", "value": "Millions" }
           ],
           "order": 1,
-          "rowDivision":2
-
+          "rowDivision": 2
         },
 
         {
@@ -107,8 +102,7 @@
             { "key": "perminute", "value": "Per Minute" }
           ],
           "order": 3,
-          "rowDivision":2
-
+          "rowDivision": 2
         },
 
         {
@@ -117,11 +111,10 @@
           "label": "Cache Memory Size",
           "type": "textbox",
           "required": true,
-          "rowDivision":1,
+          "rowDivision": 1,
 
           "order": 4
         }
-        
       ]
     }
   ]

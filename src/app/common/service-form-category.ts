@@ -1,7 +1,7 @@
 import { ServiceForm } from './service-form';
 
 export class ServiceFormCategory {
-  name: string;
+  svcName: string;
   description: string;
   forms: ServiceForm[];
 }
