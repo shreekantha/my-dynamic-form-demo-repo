@@ -6,49 +6,56 @@
     {
       "name": "Service settings",
       "description": "With Amazon Athena you only pay for the queries you run. To estimate your monthly cost, enter the total number of queries you expect to run in a day, week, or month and the amount of data scanned per query.",
-      "fields": [
-        {
-          "controlType": "textbox",
-          "key": "totalnumber",
-          "label": "Total number of queries",
-          "required": true,
-          "order": 1,
-          "rowDivision": 2
-        },
-        {
-          "controlType": "dropdown",
-          "key": "frequency",
-          "label": "Frequency",
-          "options": [
-            { "key": "perDay", "value": "Per Day" },
-            { "key": "perWeek", "value": "Per Week" },
-            { "key": "perMonth", "value": "Per Month" }
-          ],
-          "order": 2,
-          "rowDivision": 2
-        },
-        {
-          "controlType": "textbox",
-          "key": "dataamount",
-          "label": "Data amount scanned per query",
-          "required": true,
-          "order": 3,
-          "rowDivision": 2
-        },
-
-        {
-          "controlType": "dropdown",
-          "key": "frequency",
-          "label": "Frequency",
-          "options": [
-            { "key": "perDay", "value": "Per Day" },
-            { "key": "perWeek", "value": "Per Week" },
-            { "key": "perMonth", "value": "Per Month" }
-          ],
-          "order": 4,
-          "rowDivision": 2
+      "groups":[
+       {
+         "order":1,
+         "fields":[
+          {
+            "controlType": "textbox",
+            "key": "totalnumber",
+            "label": "Total number of queries",
+            "required": true,
+            "order": 1
+          },
+          {
+            "controlType": "dropdown",
+            "key": "frequency",
+            "label": "Frequency",
+            "options": [
+              { "key": "perDay", "value": "Per Day" },
+              { "key": "perWeek", "value": "Per Week" },
+              { "key": "perMonth", "value": "Per Month" }
+            ],
+            "order": 2
+          }
+         ]
+        },{
+          "order":2,
+          "fields":[
+            {
+              "controlType": "textbox",
+              "key": "dataamount",
+              "label": "Data amount scanned per query",
+              "required": true,
+              "order": 1
+            },
+    
+            {
+              "controlType": "dropdown",
+              "key": "frequency",
+              "label": "Frequency",
+              "options": [
+                { "key": "perDay", "value": "Per Day" },
+                { "key": "perWeek", "value": "Per Week" },
+                { "key": "perMonth", "value": "Per Month" }
+              ],
+              "order": 2
+            }
+          ]
         }
       ]
     }
   ]
 }
+
+

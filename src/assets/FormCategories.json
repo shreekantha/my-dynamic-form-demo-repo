@@ -17,8 +17,7 @@
               "required": true,
               "validator": "storageamount",
               "type": "textbox",
-              "order": 1,
-              "rowDivision": 2
+              "order": 1
             },
             {
               "controlType": "dropdown",
@@ -29,8 +28,7 @@
                 { "key": "perWeek", "value": "Per Week" },
                 { "key": "perMonth", "value": "Per Month" }
               ],
-              "order": 2,
-              "rowDivision": 2
+              "order": 2
             }
           ]
         },
@@ -43,8 +41,7 @@
               "controlType": "textbox",
               "required": true,
               "order": 3,
-              "type": "textbox",
-              "rowDivision": 1
+              "type": "textbox"
             },
             {
               "key": "numberofwrites",
@@ -52,8 +49,7 @@
               "controlType": "textbox",
               "required": true,
               "order": 3,
-              "type": "textbox",
-              "rowDivision": 1
+              "type": "textbox"
             }
           ]
         },
@@ -66,8 +62,7 @@
               "controlType": "textbox",
               "required": true,
               "order": 3,
-              "type": "textbox",
-              "rowDivision": 1
+              "type": "textbox"
             },
             {
               "key": "email",
@@ -75,8 +70,7 @@
               "controlType": "textbox",
               "required": true,
               "order": 3,
-              "type": "textbox",
-              "rowDivision": 1
+              "type": "textbox"
             }
           ]
         }
