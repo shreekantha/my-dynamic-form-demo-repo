@@ -40,15 +40,7 @@
               "label": "Number of reads per second",
               "controlType": "textbox",
               "required": true,
-              "order": 3,
-              "type": "textbox"
-            },
-            {
-              "key": "numberofwrites",
-              "label": "Number of writes per second",
-              "controlType": "textbox",
-              "required": true,
-              "order": 3,
+              "order": 1,
               "type": "textbox"
             }
           ]
@@ -57,19 +49,11 @@
           "order": 3,
           "fields": [
             {
-              "key": "user",
-              "label": "user name",
+              "key": "numberofwrites",
+              "label": "Number of writes per second",
               "controlType": "textbox",
               "required": true,
-              "order": 3,
-              "type": "textbox"
-            },
-            {
-              "key": "email",
-              "label": "email name",
-              "controlType": "textbox",
-              "required": true,
-              "order": 3,
+              "order": 1,
               "type": "textbox"
             }
           ]
