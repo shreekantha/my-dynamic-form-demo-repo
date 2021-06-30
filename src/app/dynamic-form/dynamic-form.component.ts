@@ -4,23 +4,21 @@ import { ServiceFormCategory } from '../common/service-form-category';
 import { FormfieldControlService } from '../formfield-control.service';
 
 @Component({
-  selector: 'app-dynamic-form',
+  selector: 'DynamicForm',
   templateUrl: './dynamic-form.component.html',
   styleUrls: ['./dynamic-form.component.css'],
 })
 export class DynamicFormComponent implements OnInit {
   // @Input() formFields: FormField<string>[] = [];
-  @Input() serviceFormCatagory: ServiceFormCategory;
+  @Input() formData: ServiceFormCategory;
   form: FormGroup;
   payLoad = ' ';
 
   constructor(private formfieldService: FormfieldControlService) {}
 
   ngOnInit(): void {
-    console.log('serviceFormCatagory:', this.serviceFormCatagory);
-    this.form = this.formfieldService.toServiceFormGroup(
-      this.serviceFormCatagory
-    );
+    console.log('formData:', this.formData);
+    this.form = this.formfieldService.toServiceFormGroup(this.formData);
   }
 
   onSubmit() {
