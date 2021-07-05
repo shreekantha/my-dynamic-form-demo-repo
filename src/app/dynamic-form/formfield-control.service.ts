@@ -6,8 +6,8 @@ import {
   Validators,
 } from '@angular/forms';
 import { of } from 'rxjs';
-import { FormField } from 'src/app/common/service-form-field';
 import { ServiceFormCategory } from './common/service-form-category';
+import { FormField } from './common/service-form-field';
 
 @Injectable({
   providedIn: 'root',
@@ -47,28 +47,33 @@ export class FormfieldControlService {
     category.forms.forEach((form) => {
       form.groups.forEach((formgroup) =>
         formgroup.fields.forEach((input) => {
-          let validator: ValidatorFn[] = input.required
-            ? [Validators.required]
-            : [];
-          switch (input.validator) {
-            case 'email':
-              validator.push(Validators.email);
-              break;
-            case 'mobilenumber':
-              validator.push(Validators.pattern('[6-9]\\d{9}'));
-              break;
-            default:
-              break;
-          }
-          group[input.key] =
-            validator.length > 0
-              ? new FormControl(input.value || '', validator)
-              : new FormControl(input.value || '');
+          if (input.dependencies) {
+            input.dependencies.forEach((dInput) => {
+              group[dInput.key] = this.prepFormGroup(dInput);
+            });
+          } else group[input.key] = this.prepFormGroup(input);
         })
       );
     });
 
     return new FormGroup(group);
+  }
+
+  prepFormGroup(input) {
+    let validator: ValidatorFn[] = input.required ? [Validators.required] : [];
+    switch (input.validator) {
+      case 'email':
+        validator.push(Validators.email);
+        break;
+      case 'mobilenumber':
+        validator.push(Validators.pattern('[6-9]\\d{9}'));
+        break;
+      default:
+        break;
+    }
+    return validator.length > 0
+      ? new FormControl(input.value || '', validator)
+      : new FormControl(input.value || '');
   }
 
   getFormFields(data: any) {

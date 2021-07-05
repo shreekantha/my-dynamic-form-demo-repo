@@ -28,7 +28,20 @@
                 { "key": "perWeek", "value": "Per Week" },
                 { "key": "perMonth", "value": "Per Month" }
               ],
-              "order": 2
+              "order": 2,
+              "dependencies": [
+                {
+                  "controlType": "dropdown",
+                  "key": "term",
+                  "label": "Term",
+                  "options": [
+                    { "key": "perDay", "value": "Per Day" },
+                    { "key": "perWeek", "value": "Per Week" },
+                    { "key": "perMonth", "value": "Per Month" }
+                  ],
+                  "order": 2
+                }
+              ]
             }
           ]
         },
