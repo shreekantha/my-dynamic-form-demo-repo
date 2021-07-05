@@ -6,8 +6,8 @@ import {
   Validators,
 } from '@angular/forms';
 import { of } from 'rxjs';
-import { FormField } from 'src/app/common/service-form-field';
 import { ServiceFormCategory } from './common/service-form-category';
+import { FormField } from './common/service-form-field';
 
 @Injectable({
   providedIn: 'root',

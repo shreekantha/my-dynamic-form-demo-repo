@@ -1,3 +1,5 @@
+import { Dependency } from "./dependency";
+
 export class FormField<T> {
     value: T;
     key: string;
@@ -8,7 +10,9 @@ export class FormField<T> {
     controlType: string;
     type: string;
     rowDivision:number;
-    dependency:boolean;
+    dependency:Dependency;
+    dependents:string[]
+    dependencyOn:boolean;
     options: { key: string; value: string }[];
   
     constructor(
@@ -22,7 +26,9 @@ export class FormField<T> {
         controlType?: string;
         type?: string;
         rowDivision?:number;
-        dependency?:boolean;
+        dependency?:Dependency;
+        dependents?:string[];
+        dependencyOn?:boolean;
         options?: { key: string; value: string }[];
       } = {}
     ) {
@@ -35,7 +41,9 @@ export class FormField<T> {
       this.rowDivision = options.rowDivision === undefined ? 1:options.rowDivision;
       this.controlType = options.controlType || "";
       this.type = options.type || "";
-      this.dependency = !!options.dependency;
+      this.dependencyOn = !!options.dependencyOn;
+      this.dependency = options.dependency;
+      this.dependents = options.dependents;
       this.options = options.options || [];
     }
   }

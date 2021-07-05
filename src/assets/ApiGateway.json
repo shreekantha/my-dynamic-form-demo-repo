@@ -20,6 +20,7 @@
                 { "key": "millions", "value": "Millions" }
               ],
               "order": 1
+              
             }
           ]
         },
@@ -32,6 +33,7 @@
               "label": "Requests",
               "required": true,
               "order": 1
+              
             },
             {
               "controlType": "dropdown",
@@ -43,6 +45,7 @@
                 { "key": "perminute", "value": "Per Minute" }
               ],
               "order": 2
+              
             }
           ]
         },
