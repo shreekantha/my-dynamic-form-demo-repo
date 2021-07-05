@@ -1,9 +1,8 @@
-import { EventEmitter } from '@angular/core';
-import { Component, Input, Output } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { Dependency } from '../common/dependency';
 import { ServiceForm } from '../common/service-form';
 import { FormField } from '../common/service-form-field';
+import { ServiceFormFieldGroup } from '../common/service-form-field-group';
 
 @Component({
   selector: 'FormInput',
@@ -11,41 +10,48 @@ import { FormField } from '../common/service-form-field';
   styleUrls: ['./dynamic-form-input.component.css'],
 })
 export class DynamicFormInputComponent {
-  @Input() input: FormField<string>;
+  // @Input() input: FormField<string>;
   @Input() form: FormGroup;
-  @Input() serviceForm:ServiceForm;
-  dependent:any;
-  listOfanotherInput :FormField<string>[] = [];
+  @Input() serviceForm: ServiceForm;
+  @Input() group: ServiceFormFieldGroup;
+  dependent: any;
+  listOfdependentFields: FormField<string>[] = [];
   displayThis = false;
-  size:any;
+  size: any;
   constructor() {
-    console.log('---------', this.input);
+    console.log('---------', this.group);
   }
   get isValid() {
-    return this.form.controls[this.input.key].valid;
+    //return this.form.controls[input.key].valid;
+    return true;
   }
 
-  onChange(key,value,dependents) {
-    
-    console.log("value--->",value)
-    this.listOfanotherInput =[];
-    this.serviceForm.groups.forEach(g=>{
-      g.fields.forEach(field=>{
-        if(field.dependency.is === value){   
-           this.size =  g.fields.length;
-          console.log("length---->",this.size);   
-        dependents && dependents.forEach(ff=>{
-          if(field.key===ff){   
-            this.displayThis = true;
-            console.log("key",field.key,"-value:",ff);
-            this.listOfanotherInput.push(field);
-            console.log("this.listOfanotherInput",this.listOfanotherInput)
-            this.input.dependency.notShow=false;
-          }
-        })
-      }
-      })
-    })
-    
+  onChange(key, value, dependents) {
+    console.log('value--->', value);
+    this.listOfdependentFields = [];
+    this.serviceForm.groups.forEach((g) => {
+      g.fields.forEach((field) => {
+        if (field.dependency.is === value) {
+          this.size = g.fields.length;
+          console.log('length---->', this.size);
+          dependents &&
+            dependents.forEach((dependent) => {
+              if (field.key === dependent) {
+                this.displayThis = true;
+                console.log('key', field.key, '-value:', dependent);
+                this.form.get(field.key).enable();
+                this.listOfdependentFields.push(field);
+                console.log(
+                  'this.listOfdependentFields',
+                  this.listOfdependentFields
+                );
+                //  this.input.dependency.notShow = false;
+              } else {
+                this.form.get(field.key).disable();
+              }
+            });
+        }
+      });
+    });
   }
 }
