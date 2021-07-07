@@ -1,5 +1,29 @@
 <div class="container">
   <div class="row form-group"></div>
+  <div class="row form-group">
+    <div class="col-md-6" *ngFor="let cat of catagories">
+      <div class="card">
+        <h5 class="card-header">{{ cat.svcName }}</h5>
+        <div class="card-body">
+          <p class="card-text">
+            {{ cat.description }}
+          </p>
+          <button
+            class="btn btn-primary"
+            type="button"
+            (click)="
+              onClick(
+                'https://gpet-server-app.herokuapp.com/gpet/api/scategory/' +
+                  cat.id
+              )
+            "
+          >
+            Configure
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <div class="row form-group">
     <div class="col-md-6">
@@ -35,7 +59,11 @@
           <button
             class="btn btn-primary"
             type="button"
-            (click)="onClick('/assets/amazonAthena.json')"
+            (click)="
+              onClick(
+                'https://gpet-server-app.herokuapp.com/gpet/api/scategory/all'
+              )
+            "
           >
             Configure
           </button>

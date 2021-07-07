@@ -44,7 +44,7 @@ export class FormfieldControlService {
     const group: any = {};
 
     console.log('category:{}', category);
-    category.forms.forEach((form) => {
+    category.svcDetails.forms.forEach((form) => {
       form.groups.forEach((formgroup) =>
         formgroup.fields.forEach((input) => {
           let validator: ValidatorFn[] = input.required

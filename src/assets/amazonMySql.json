@@ -2,160 +2,148 @@
   "svcName": "Configure Amazon Aurora MySQL-Compatible",
   "svcCode": "1001",
   "description": "API Gateway",
-  "forms": [
-    {
-      "name": "Database Storage",
-      "description": "",
-      "groups": [
-        {
-          "order": 1,
-          "fields": [
-            {
-              "key": "storageamount",
-              "label": "Storage amount",
-              "controlType": "textbox",
-              "required": true,
-              "validator": "storageamount",
-              "type": "textbox",
-              "order": 1,
-              "dependency":{}
-
-              
-            },
-            {
-              "controlType": "dropdown",
-              "key": "frequency",
-              "label": "Frequency",
-              "options": [
-                { "key": "perDay", "value": "Per Day" },
-                { "key": "perWeek", "value": "Per Week" },
-                { "key": "perMonth", "value": "Per Month" }
-              ],
-              "order": 2,
-              "dependency":{},
-              "dependents":["numberofreads"]
-
-
-            }
-          ]
-        },
-        {
-          "order": 2,
-          "fields": [
-            {
-              "key": "numberofreads",
-              "label": "Number of reads per second",
-              "controlType": "textbox",
-              "required": true,
-              "order": 1,
-              "type": "textbox",
-              "dependency":{
-                "on":"frequency",
-                "is":"Per Week",
-                "notShow":true
+  "svcDetails": {
+    "forms": [
+      {
+        "name": "Database Storage",
+        "description": "",
+        "groups": [
+          {
+            "order": 1,
+            "fields": [
+              {
+                "key": "storageamount",
+                "label": "Storage amount",
+                "controlType": "textbox",
+                "required": true,
+                "validator": "storageamount",
+                "type": "textbox",
+                "order": 1,
+                "dependency": {}
+              },
+              {
+                "controlType": "dropdown",
+                "key": "frequency",
+                "label": "Frequency",
+                "options": [
+                  { "key": "perDay", "value": "Per Day" },
+                  { "key": "perWeek", "value": "Per Week" },
+                  { "key": "perMonth", "value": "Per Month" }
+                ],
+                "order": 2,
+                "dependency": {},
+                "dependents": ["numberofreads"]
               }
-
-            }
-          ]
-        },
-        {
-          "order": 3,
-          "fields": [
-            {
-              "key": "numberofwrites",
-              "label": "Number of writes per second",
-              "controlType": "textbox",
-              "required": true,
-              "order": 1,
-              "type": "textbox",
-              "dependency":{}
-            }
-          ]
-        },
-        {
-          "order":4,
-          "fields":[
-            {
-              "controlType": "dropdown",
-              "key": "pricingmodel",
-              "label": "Pricing model",
-              "options": [
-                { "key": "reserved", "value": "Reserved" },
-                { "key": "onDemand", "value": "OnDemand" }
-              ],
-              "order": 1,
-              "dependency":{},
-              "dependents":["term","purchaseoption","auroraCapacity"]
-              
-            }
-          ]
-        },
-        {
-          "order":5,
-          "fields":[
-            {
-              "controlType": "dropdown",
-              "key": "term",
-              "label": "Term",
-              "options": [
-                { "key": "1yr", "value": "1yr" },
-                { "key": "3yr", "value": "3yr" }
-              ],
-              "order": 1,
-              "dependency":{
-                "on":"pricingmodel",
-                "is":"Reserved",
-                "notShow":true
-
+            ]
+          },
+          {
+            "order": 2,
+            "fields": [
+              {
+                "key": "numberofreads",
+                "label": "Number of reads per second",
+                "controlType": "textbox",
+                "required": true,
+                "order": 1,
+                "type": "textbox",
+                "dependency": {
+                  "on": "frequency",
+                  "is": "Per Week",
+                  "notShow": true
+                }
               }
-            }
-          ]
-        },
-        {
-          "order":6,
-          "fields":[
-            {
-              "controlType": "dropdown",
-              "key": "purchaseoption",
-              "label": "Purchase option",
-              "options": [
-                { "key": "partialupfront", "value": "Partial upfront" },
-                { "key": "allupfront", "value": "All upfront" },
-                { "key": "noupfront", "value": "No upfront" }
-              ],
-              "order": 1,
-              "dependency":{
-                "on":"pricingmodel",
-                "is":"Reserved",
-                "notShow":true
+            ]
+          },
+          {
+            "order": 3,
+            "fields": [
+              {
+                "key": "numberofwrites",
+                "label": "Number of writes per second",
+                "controlType": "textbox",
+                "required": true,
+                "order": 1,
+                "type": "textbox",
+                "dependency": {}
               }
-            }
-          ]
-        },
-        {
-          "order":7,
-          "fields":[
-            {
-              "controlType": "textbox",
-              "key": "auroraCapacity",
-              "label": "Number of Aurora Capacity Units (ACUs)",
-              "order": 1,
-              "dependency":{
-                "on":"pricingmodel",
-                "is":"Reserved",
-                "notShow":true
+            ]
+          },
+          {
+            "order": 4,
+            "fields": [
+              {
+                "controlType": "dropdown",
+                "key": "pricingmodel",
+                "label": "Pricing model",
+                "options": [
+                  { "key": "reserved", "value": "Reserved" },
+                  { "key": "onDemand", "value": "OnDemand" }
+                ],
+                "order": 1,
+                "dependency": {},
+                "dependents": ["term", "purchaseoption", "auroraCapacity"]
               }
-            }
-          ]
-        }
-        
-        
-      
-
-          
-          
-        
-      ]
-    }
-  ]
+            ]
+          },
+          {
+            "order": 5,
+            "fields": [
+              {
+                "controlType": "dropdown",
+                "key": "term",
+                "label": "Term",
+                "options": [
+                  { "key": "1yr", "value": "1yr" },
+                  { "key": "3yr", "value": "3yr" }
+                ],
+                "order": 1,
+                "dependency": {
+                  "on": "pricingmodel",
+                  "is": "Reserved",
+                  "notShow": true
+                }
+              }
+            ]
+          },
+          {
+            "order": 6,
+            "fields": [
+              {
+                "controlType": "dropdown",
+                "key": "purchaseoption",
+                "label": "Purchase option",
+                "options": [
+                  { "key": "partialupfront", "value": "Partial upfront" },
+                  { "key": "allupfront", "value": "All upfront" },
+                  { "key": "noupfront", "value": "No upfront" }
+                ],
+                "order": 1,
+                "dependency": {
+                  "on": "pricingmodel",
+                  "is": "Reserved",
+                  "notShow": true
+                }
+              }
+            ]
+          },
+          {
+            "order": 7,
+            "fields": [
+              {
+                "controlType": "textbox",
+                "key": "auroraCapacity",
+                "label": "Number of Aurora Capacity Units (ACUs)",
+                "order": 1,
+                "dependency": {
+                  "on": "pricingmodel",
+                  "is": "Reserved",
+                  "notShow": true
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
 }

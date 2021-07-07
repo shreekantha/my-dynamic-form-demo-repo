@@ -1,20 +1,27 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-
-  constructor(private router:Router) { }
+  catagories: any[];
+  constructor(private router: Router, private http: HttpClient) {}
 
   ngOnInit(): void {
+    this.http
+      .get('https://gpet-server-app.herokuapp.com/gpet/api/scategory/')
+      .subscribe((data) => {
+        this.catagories = data as any;
+        console.log(data);
+      });
   }
 
-  onClick(url){
-    console.log("-----------",url);
-    this.router.navigate(['/configure'],{ queryParams:{'url':url}});
+  onClick(url) {
+    console.log('-----------', url);
+    this.router.navigate(['/configure'], { queryParams: { url: url } });
   }
 }

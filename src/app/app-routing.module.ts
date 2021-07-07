@@ -4,25 +4,18 @@ import { DynamicFormMainComponentComponent } from './dynamic-form-main-component
 import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
-
   {
-  
     path: '',
-    component:HomeComponent
+    component: HomeComponent,
   },
   {
-    path:'configure',
-    component:DynamicFormMainComponentComponent
-  }
-
+    path: 'configure',
+    component: DynamicFormMainComponentComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { 
-
-
-
-}
+export class AppRoutingModule {}

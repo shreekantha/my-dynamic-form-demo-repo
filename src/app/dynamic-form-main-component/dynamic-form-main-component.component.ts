@@ -3,9 +3,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { ServiceFormCategory } from '../dynamic-form/common/service-form-category';
-import { FormField } from '../dynamic-form/common/service-form-field';
 import { FormfieldControlService } from '../dynamic-form/formfield-control.service';
-
 
 @Component({
   selector: 'app-dynamic-form-main-component',

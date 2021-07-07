@@ -14,7 +14,10 @@
     </div>
     <div class="row">
       <div class="col-md-12">
-        <div *ngFor="let serviceForm of formData.forms" class="form-group">
+        <div
+          *ngFor="let serviceForm of formData.svcDetails.forms"
+          class="form-group"
+        >
           <div class="card">
             <div class="card-header">
               <h4>{{ serviceForm.name }}</h4>

@@ -39,7 +39,7 @@ export class DynamicFormInputComponent {
               if (field.key === dependent) {
                 this.displayThis = true;
                 console.log('key', field.key, '-value:', dependent);
-                this.form.get(field.key).enable();
+                //  this.form.get(field.key).enable();
                 this.listOfdependentFields.push(field);
                 console.log(
                   'this.listOfdependentFields',
@@ -47,7 +47,7 @@ export class DynamicFormInputComponent {
                 );
                 //  this.input.dependency.notShow = false;
               } else {
-                this.form.get(field.key).disable();
+                //this.form.get(field.key).disable();
               }
             });
         }
