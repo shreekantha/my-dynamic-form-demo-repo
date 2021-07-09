@@ -1,6 +1,6 @@
 <div id="form" [formGroup]="form" class="row">
   <!-- {{ group | json }} -->
-  <div
+  <!-- <div
     *ngFor="let input of group.fields"
     [ngClass]="{
       'col-sm-12 col-md-12': group.fields.length == 1,
@@ -9,7 +9,7 @@
       'col-sm-12 col-md-3': group.fields.length == 4,
       'form-group': true
     }"
-  >
+  > -->
     <div [ngSwitch]="input.controlType">
       <!-- {{input | json}} -->
 
@@ -110,10 +110,10 @@
         </div>
       </div>
     </div>
-  </div>
+  <!-- </div> -->
   <!--Second Part -->
 
-  <div
+  <!-- <div
     [hidden]="!displayThis"
     *ngFor="let dependentField of listOfdependentFields"
     [ngClass]="{
@@ -125,7 +125,6 @@
     }"
   >
     <div [ngSwitch]="dependentField.controlType">
-      <!-- {{input | json}} -->
 
       <div *ngSwitchCase="'textbox'">
         <div *ngIf="dependentField.dependency.notShow">
@@ -264,5 +263,5 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 </div>
