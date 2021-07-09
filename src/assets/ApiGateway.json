@@ -89,7 +89,9 @@
               }
             ]
           }
-        ]
+        ],
+        "dependency": {},
+        "dependents": ["REST APIs"]
       },
       {
         "name": "REST APIs",
@@ -155,7 +157,12 @@
               }
             ]
           }
-        ]
+        ],
+        "dependency": {
+          "on": "httpapi",
+          "is": "Thousands",
+          "notShow": true
+        }
       }
     ]
   }
