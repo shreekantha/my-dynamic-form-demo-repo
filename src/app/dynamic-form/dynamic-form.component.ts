@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { ServiceFormCategory } from './common/service-form-category';
 import { FormField } from './common/service-form-field';
@@ -14,13 +14,13 @@ export class DynamicFormComponent implements OnInit {
   // @Input() formFields: FormField<string>[] = [];
   @Input() formData: ServiceFormCategory;
   form: FormGroup;
-  displayThis:boolean;
-  size:number;
+  displayThis: boolean;
+  size: number;
   payLoad = ' ';
   listOfdependentFields: FormField<string>[] = [];
 
 
-  constructor(private formfieldService: FormfieldControlService) {}
+  constructor(private formfieldService: FormfieldControlService) { }
 
   ngOnInit(): void {
     console.log('formData:', this.formData);
@@ -28,27 +28,41 @@ export class DynamicFormComponent implements OnInit {
 
   }
 
-  onChange(data){
-    this.formData.svcDetails.forms.forEach(ele =>{
-      ele.groups.forEach(element =>{
-        element.fields.forEach(elem =>{
-          
+  onChange(data) {
+    this.listOfdependentFields = data.listOfdependentFields;
+    const value = data.value;
+    if (this.listOfdependentFields) {
+      this.formData.svcDetails.forms.forEach(ele => {
+        ele.groups.forEach(element => {
+          element.fields.forEach(elem => {
+            this.listOfdependentFields.forEach(dependent => {
+              if (dependent.key === elem.key) {
+                console.log("dependent.dependency.is === elem.value && ", dependent.dependency.is, "===", value)
+                if (dependent.dependency.is === value && dependent.dependency.notShow) {
+                  elem.dependency.notShow = false;
+                } else {
+                  elem.dependency.notShow = true
+                }
+              }
+
+            })
+
+          })
         })
       })
-    })
-    this.listOfdependentFields = data.listOfdependentFields;
-    console.log("data**",data);
+    }
+    console.log("data**", data);
 
 
-    this.size=this.listOfdependentFields.length;
-    
-    if(this.size > 0){
+    this.size = this.listOfdependentFields.length;
+
+    if (this.size > 0) {
       this.displayThis = true;
-    }else{
+    } else {
       this.displayThis = false;
     }
-    console.log("listOfdependentFields**",this.listOfdependentFields);
-    console.log("this.displayThis**",this.displayThis);
+    console.log("listOfdependentFields**", this.listOfdependentFields);
+    console.log("this.displayThis**", this.displayThis);
 
   }
 
@@ -57,5 +71,5 @@ export class DynamicFormComponent implements OnInit {
     this.form.reset();
   }
 
- 
+
 }
