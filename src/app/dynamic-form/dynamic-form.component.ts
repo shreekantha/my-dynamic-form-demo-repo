@@ -29,16 +29,16 @@ export class DynamicFormComponent implements OnInit {
   }
 
   onChange(data) {
-    this.listOfdependentFields = data.listOfdependentFields;
-    const value = data.value;
-    if (this.listOfdependentFields) {
+    const { dependentKeys, value } = data;
+    // const value = data.value;
+    if (dependentKeys) {
       this.formData.svcDetails.forms.forEach(ele => {
         ele.groups.forEach(element => {
           element.fields.forEach(elem => {
-            this.listOfdependentFields.forEach(dependent => {
-              if (dependent.key === elem.key) {
-                console.log("dependent.dependency.is === elem.value && ", dependent.dependency.is, "===", value)
-                if (dependent.dependency.is === value && dependent.dependency.notShow) {
+            dependentKeys.forEach(dependentKey => {
+              if (dependentKey === elem.key) {
+                console.log("dependentKey.dependency.is === elem.value && ", elem.dependency.is, "===", value)
+                if (elem.dependency.is === value && elem.dependency.notShow) {
                   elem.dependency.notShow = false;
                 } else {
                   elem.dependency.notShow = true

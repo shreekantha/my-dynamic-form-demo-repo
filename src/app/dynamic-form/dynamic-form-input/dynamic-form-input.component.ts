@@ -27,39 +27,9 @@ export class DynamicFormInputComponent {
     return true;
   }
 
-  onChange(key, value, dependents) {
-    console.log('value--->', value);
-    this.listOfdependentFields = [];
-    this.serviceForm.groups.forEach((g) => {
-      g.fields.forEach((field) => {
-        // if (field.dependency.is === value) {
-        this.size = g.fields.length;
-        console.log('length---->', this.size);
-        dependents &&
-          dependents.forEach((dependent) => {
+  onChange(formKey, value, dependentKeys, dependentType) {
 
-            if (field.key === dependent) {
-              this.displayThis = true;
-              console.log('key', field.key, '-value:', dependent);
-              //  this.form.get(field.key).enable();
-              // field.dependency.notShow = false;
-              this.listOfdependentFields.push(field);
-              console.log(
-                'this.listOfdependentFields',
-                this.listOfdependentFields
-              );
-
-              //  this.input.dependency.notShow = false;
-            } else {
-              //this.form.get(field.key).disable();
-              // this.displayThis = false
-            }
-          });
-
-        // }
-      });
-    });
-    const data = { listOfdependentFields: this.listOfdependentFields, displayThis: this.displayThis, value }
+    const data = { formKey, dependentKeys, value, dependentType }
     this.dependencyFieldData.emit(data);
   }
 }
