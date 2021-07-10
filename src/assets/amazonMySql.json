@@ -5,6 +5,7 @@
   "svcDetails": {
     "forms": [
       {
+        "key":"aurora",
         "name": "Database Storage",
         "description": "",
         "groups": [
@@ -142,6 +143,76 @@
               }
             ]
           }
+        ]
+      },
+      {
+        "key":"mysql",
+        "name": "mysql Database Storage",
+        "description": "",
+        "groups": [
+          {
+            "order": 1,
+            "fields": [
+              {
+                "key": "storageamount1",
+                "label": "Storage amount",
+                "controlType": "textbox",
+                "required": true,
+                "validator": "storageamount",
+                "type": "textbox",
+                "order": 1,
+                "dependency": {}
+              }
+              
+            ]
+          },
+          {
+            "order": 2,
+            "fields": [
+              {
+                "key": "numberofreads1",
+                "label": "Number of reads per second",
+                "controlType": "textbox",
+                "required": true,
+                "order": 1,
+                "type": "textbox",
+                "dependency": {}
+                
+              }
+            ]
+          },
+          {
+            "order": 3,
+            "fields": [
+              {
+                "key": "numberofwrites1",
+                "label": "Number of writes per second",
+                "controlType": "textbox",
+                "required": true,
+                "order": 1,
+                "type": "textbox",
+                "dependency": {}
+              }
+            ]
+          },
+          
+          {
+            "order": 6,
+            "fields": [
+              {
+                "controlType": "dropdown",
+                "key": "name",
+                "label": "name",
+                "options": [
+                  { "key": "1yr", "value": "1yr" },
+                  { "key": "3yr", "value": "3yr" }
+                ],
+                "order": 1
+                
+              }
+            ]
+          }
+          
         ]
       }
     ]

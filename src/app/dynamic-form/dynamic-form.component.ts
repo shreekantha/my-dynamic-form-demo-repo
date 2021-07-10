@@ -29,11 +29,14 @@ export class DynamicFormComponent implements OnInit {
   }
 
   onChange(data) {
-    const { dependentKeys, value } = data;
+    const { dependentKeys, value, formKey } = data;
     // const value = data.value;
     if (dependentKeys) {
-      this.formData.svcDetails.forms.forEach(ele => {
-        ele.groups.forEach(element => {
+      this.formData.svcDetails.forms.find(form => form.key === formKey).
+        // this.formData.svcDetails.forms.forEach(ele => {
+        //   console.log("key ", ele.key)
+        //   ele.
+        groups.forEach(element => {
           element.fields.forEach(elem => {
             dependentKeys.forEach(dependentKey => {
               if (dependentKey === elem.key) {
@@ -49,20 +52,8 @@ export class DynamicFormComponent implements OnInit {
 
           })
         })
-      })
+      // })
     }
-    console.log("data**", data);
-
-
-    this.size = this.listOfdependentFields.length;
-
-    if (this.size > 0) {
-      this.displayThis = true;
-    } else {
-      this.displayThis = false;
-    }
-    console.log("listOfdependentFields**", this.listOfdependentFields);
-    console.log("this.displayThis**", this.displayThis);
 
   }
 
