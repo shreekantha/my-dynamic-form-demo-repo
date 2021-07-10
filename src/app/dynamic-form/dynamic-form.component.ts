@@ -29,32 +29,46 @@ export class DynamicFormComponent implements OnInit {
   }
 
   onChange(data) {
-    const { dependentKeys, value, formKey } = data;
-    // const value = data.value;
+    const { dependentKeys, value, formKey, dependentType } = data;
+
     if (dependentKeys) {
-      this.formData.svcDetails.forms.find(form => form.key === formKey).
-        // this.formData.svcDetails.forms.forEach(ele => {
-        //   console.log("key ", ele.key)
-        //   ele.
-        groups.forEach(element => {
-          element.fields.forEach(elem => {
-            dependentKeys.forEach(dependentKey => {
-              if (dependentKey === elem.key) {
-                console.log("dependentKey.dependency.is === elem.value && ", elem.dependency.is, "===", value)
-                if (elem.dependency.is === value && elem.dependency.notShow) {
-                  elem.dependency.notShow = false;
-                } else {
-                  elem.dependency.notShow = true
-                }
-              }
+      switch (dependentType) {
+        case "CONTROL":
 
-            })
+          this.formFieldPrep(formKey, dependentKeys, value);
+          break;
 
-          })
-        })
-      // })
+        case "FORM":
+
+          break;
+      }
+
     }
 
+  }
+
+  private formFieldPrep(formKey: any, dependentKeys: any, value: any) {
+    this.formData.svcDetails.forms.find(form => form.key === formKey).
+      // this.formData.svcDetails.forms.forEach(ele => {
+      //   console.log("key ", ele.key)
+      //   ele.
+      groups.forEach(element => {
+        element.fields.forEach(elem => {
+          dependentKeys.forEach(dependentKey => {
+            if (dependentKey === elem.key) {
+              console.log("dependentKey.dependency.is === elem.value && ", elem.dependency.is, "===", value);
+              if (elem.dependency.is === value && elem.dependency.notShow) {
+                elem.dependency.notShow = false;
+              } else {
+                elem.dependency.notShow = true;
+              }
+            }
+
+          });
+
+        });
+      });
+    // })
   }
 
   onSubmit() {
