@@ -1,11 +1,37 @@
 {
-  "svcName": "Configure Amazon Aurora MySQL-Compatible",
+  "svcName": "Configure Amazon Aurora MySQL-Compatible template",
   "svcCode": "1001",
   "description": "API Gateway",
   "svcDetails": {
     "forms": [
       {
-        "key":"aurora",
+        "key": "template",
+        "name": "template Database Storage",
+        "description": "",
+        "groups": [
+          {
+            "order": 1,
+            "fields": [
+              {
+                "controlType": "radio",
+                "key": "storageamount1",
+                "label": "Frequency",
+                "type": "radio",
+                "order": 2,
+                "dependency": {},
+                "dependents": ["mySql", "aurora"],
+                "options": [
+                  { "key": "mySql", "value": "Mysql" },
+                  { "key": "aurora", "value": "Aurora" },
+                  { "key": "perMonth", "value": "Per Month" }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "aurora",
         "name": "Database Storage",
         "description": "",
         "groups": [
@@ -146,7 +172,7 @@
         ]
       },
       {
-        "key":"mysql",
+        "key": "mysql",
         "name": "mysql Database Storage",
         "description": "",
         "groups": [
@@ -163,7 +189,6 @@
                 "order": 1,
                 "dependency": {}
               }
-              
             ]
           },
           {
@@ -177,7 +202,6 @@
                 "order": 1,
                 "type": "textbox",
                 "dependency": {}
-                
               }
             ]
           },
@@ -195,7 +219,7 @@
               }
             ]
           },
-          
+
           {
             "order": 6,
             "fields": [
@@ -207,12 +231,11 @@
                   { "key": "1yr", "value": "1yr" },
                   { "key": "3yr", "value": "3yr" }
                 ],
-                "order": 1
-                
+                "order": 1,
+                "dependency": {}
               }
             ]
           }
-          
         ]
       }
     ]

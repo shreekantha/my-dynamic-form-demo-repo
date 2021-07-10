@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row form-group"></div>
-  <div class="row form-group">
+  <div class="row form-group" *ngIf="catagories">
     <div class="col-md-6" *ngFor="let cat of catagories">
       <div class="card">
         <h5 class="card-header">{{ cat.svcName }}</h5>
@@ -18,8 +18,15 @@
               )
             "
           >
-            Configure
+            Configure api
           </button>
+          <button
+          class="btn btn-primary"
+          type="button"
+          (click)="onClick('/assets/amazonMySql.json')"
+        >
+          Configure
+        </button>
         </div>
       </div>
     </div>

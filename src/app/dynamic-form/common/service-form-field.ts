@@ -43,7 +43,7 @@ export class FormField<T> {
     this.controlType = options.controlType || "";
     this.type = options.type || "";
     this.dependencyOn = !!options.dependencyOn;
-    this.dependency = options.dependency;
+    this.dependency = options.dependency || {} as Dependency;
     this.dependents = options.dependents;
     this.dependentType = options.dependentType || "CONTROL"
     this.options = options.options || [];
