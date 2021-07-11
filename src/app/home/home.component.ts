@@ -8,8 +8,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  catagories: any[];
-  constructor(private router: Router, private http: HttpClient) {}
+  catagories: any[] = [];
+  constructor(private router: Router, private http: HttpClient) { }
 
   ngOnInit(): void {
     this.http
@@ -18,6 +18,7 @@ export class HomeComponent implements OnInit {
         this.catagories = data as any;
         console.log(data);
       });
+    //    this.catagories.push({ svcName: "Template", api: "/assets/amazonMySql.json" })
   }
 
   onClick(url) {

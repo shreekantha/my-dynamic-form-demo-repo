@@ -29,41 +29,46 @@ export class DynamicFormComponent implements OnInit {
   }
 
   onChange(data) {
-    this.listOfdependentFields = data.listOfdependentFields;
-    const value = data.value;
-    if (this.listOfdependentFields) {
-      this.formData.svcDetails.forms.forEach(ele => {
-        ele.groups.forEach(element => {
-          element.fields.forEach(elem => {
-            this.listOfdependentFields.forEach(dependent => {
-              if (dependent.key === elem.key) {
-                console.log("dependent.dependency.is === elem.value && ", dependent.dependency.is, "===", value)
-                if (dependent.dependency.is === value && dependent.dependency.notShow) {
-                  elem.dependency.notShow = false;
-                } else {
-                  elem.dependency.notShow = true
-                }
+    const { dependentKeys, value, formKey, dependentType } = data;
+
+    if (dependentKeys) {
+      switch (dependentType) {
+        case "CONTROL":
+
+          this.formFieldPrep(formKey, dependentKeys, value);
+          break;
+
+        case "FORM":
+
+          break;
+      }
+
+    }
+
+  }
+
+  private formFieldPrep(formKey: any, dependentKeys: any, value: any) {
+    this.formData.svcDetails.forms.find(form => form.key === formKey).
+      // this.formData.svcDetails.forms.forEach(ele => {
+      //   console.log("key ", ele.key)
+      //   ele.
+      groups.forEach(element => {
+        element.fields.forEach(elem => {
+          dependentKeys.forEach(dependentKey => {
+            if (dependentKey === elem.key) {
+              console.log("dependentKey.dependency.is === elem.value && ", elem.dependency.is, "===", value);
+              if (elem.dependency.is === value && elem.dependency.notShow) {
+                elem.dependency.notShow = false;
+              } else {
+                elem.dependency.notShow = true;
               }
+            }
 
-            })
+          });
 
-          })
-        })
-      })
-    }
-    console.log("data**", data);
-
-
-    this.size = this.listOfdependentFields.length;
-
-    if (this.size > 0) {
-      this.displayThis = true;
-    } else {
-      this.displayThis = false;
-    }
-    console.log("listOfdependentFields**", this.listOfdependentFields);
-    console.log("this.displayThis**", this.displayThis);
-
+        });
+      });
+    // })
   }
 
   onSubmit() {

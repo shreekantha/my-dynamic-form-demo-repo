@@ -1,4 +1,4 @@
-<div id="form" [formGroup]="form" >
+<div id="form" [formGroup]="form">
   <!-- {{ group | json }} -->
   <!-- <div
     *ngFor="let input of group.fields"
@@ -10,79 +10,93 @@
       'form-group': true
     }"
   > -->
-    <div [ngSwitch]="input.controlType">
-      <!-- {{input | json}} -->
+  <div [ngSwitch]="input.controlType">
+    <!-- {{input | json}} -->
 
-      <div *ngSwitchCase="'textbox'">
-        <div *ngIf="!input.dependency.notShow">
-          <label [attr.for]="input.key">{{ input.label }}</label>
-          <input
-            class="form-control"
-            [formControlName]="input.key"
-            [id]="input.key"
-            [type]="input.type"
-          />
-          <div *ngIf="form.get(input.key).dirty || form.get(input.key).touched">
-            <small style="color: red" *ngIf="!form.get(input.key).valid">
-              {{ input.label }} is Required
-            </small>
-          </div>
+    <div *ngSwitchCase="'textbox'">
+      <div *ngIf="!input.dependency.notShow">
+        <label [attr.for]="input.key">{{ input.label }}</label>
+        <input
+          class="form-control"
+          [formControlName]="input.key"
+          [id]="input.key"
+          [type]="input.type"
+        />
+        <div *ngIf="form.get(input.key).dirty || form.get(input.key).touched">
+          <small style="color: red" *ngIf="!form.get(input.key).valid">
+            {{ input.label }} is Required
+          </small>
         </div>
       </div>
+    </div>
 
-      <div *ngSwitchCase="'dropdown'">
-        <div *ngIf="!input.dependency.notShow">
-          <label [attr.for]="input.key">{{ input.label }}</label>
-          <select
-            class="custom-select"
-            [id]="input.key"
-            [formControlName]="input.key"
-            (change)="
-              onChange(input.key, $event.target.value, input.dependents,input.dependentType)
-            "
-          >
-            <option *ngFor="let opt of input.options" [value]="opt.value">
-              {{ opt.value }}
-            </option>
-          </select>
-          <div *ngIf="form.get(input.key).dirty || form.get(input.key).touched">
-            <small style="color: red" *ngIf="!form.get(input.key).valid">
-              {{ input.label }} is Required
-            </small>
-          </div>
+    <div *ngSwitchCase="'dropdown'">
+      <div *ngIf="!input.dependency.notShow">
+        <label [attr.for]="input.key">{{ input.label }}</label>
+        <select
+          class="custom-select"
+          [id]="input.key"
+          [formControlName]="input.key"
+          (change)="
+            onChange(
+              serviceForm.key,
+              $event.target.value,
+              input.dependents,
+              input.dependentType
+            )
+          "
+        >
+          <option *ngFor="let opt of input.options" [value]="opt.value">
+            {{ opt.value }}
+          </option>
+        </select>
+        <div *ngIf="form.get(input.key).dirty || form.get(input.key).touched">
+          <small style="color: red" *ngIf="!form.get(input.key).valid">
+            {{ input.label }} is Required
+          </small>
         </div>
       </div>
+    </div>
 
-      <div *ngSwitchCase="'checkbox'">
-        <div class="form-check">
-          <input
-            class="form-check-input"
-            type="checkbox"
-            [formControlName]="input.key"
-            [id]="input.key"
-          />
-          <label class="form-check-label" [attr.for]="input.key">{{
-            input.label
-          }}</label>
-          <div *ngIf="form.get(input.key).dirty || form.get(input.key).touched">
-            <small style="color: red" *ngIf="!form.get(input.key).valid">
-              {{ input.label }} is Required
-            </small>
-          </div>
+    <div *ngSwitchCase="'checkbox'">
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          [formControlName]="input.key"
+          [id]="input.key"
+        />
+        <label class="form-check-label" [attr.for]="input.key">{{
+          input.label
+        }}</label>
+        <div *ngIf="form.get(input.key).dirty || form.get(input.key).touched">
+          <small style="color: red" *ngIf="!form.get(input.key).valid">
+            {{ input.label }} is Required
+          </small>
         </div>
       </div>
+    </div>
 
-      <div *ngSwitchCase="'radio'">
+    <div *ngSwitchCase="'radio'">
+      <div *ngIf="!input.dependency.notShow">
         <div
           class="form-check form-check-inline"
           *ngFor="let opt of input.options"
         >
           <input
             class="form-check-input"
+            [value]="opt.value"
             type="radio"
             [formControlName]="input.key"
             [id]="input.key"
-            [value]="opt.value"
+            (click)="
+              onChange(
+                serviceForm.key,
+                $event.target.value,
+                input.dependents,
+                input.dependentType
+              )
+            "
           />
           <label class="form-check-label" [attr.for]="opt.key">
             {{ opt.value }}
@@ -94,22 +108,23 @@
           </small>
         </div>
       </div>
+    </div>
 
-      <div *ngSwitchCase="'textarea'">
-        <label [attr.for]="input.key">{{ input.label }}</label>
-        <textarea
-          class="form-control"
-          [formControlName]="input.key"
-          [id]="input.key"
-          rows="5"
-        ></textarea>
-        <div *ngIf="form.get(input.key).dirty || form.get(input.key).touched">
-          <small style="color: red" *ngIf="!form.get(input.key).valid">
-            {{ input.label }} is Required
-          </small>
-        </div>
+    <div *ngSwitchCase="'textarea'">
+      <label [attr.for]="input.key">{{ input.label }}</label>
+      <textarea
+        class="form-control"
+        [formControlName]="input.key"
+        [id]="input.key"
+        rows="5"
+      ></textarea>
+      <div *ngIf="form.get(input.key).dirty || form.get(input.key).touched">
+        <small style="color: red" *ngIf="!form.get(input.key).valid">
+          {{ input.label }} is Required
+        </small>
       </div>
     </div>
+  </div>
   <!-- </div> -->
   <!--Second Part -->
 

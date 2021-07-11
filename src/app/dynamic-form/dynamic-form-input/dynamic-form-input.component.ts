@@ -20,66 +20,16 @@ export class DynamicFormInputComponent {
   displayThis = false;
   size: any;
   constructor() {
-    console.log('---------', this.group);
+    //console.log('---------', this.group);
   }
   get isValid() {
     //return this.form.controls[input.key].valid;
     return true;
   }
 
-  onChange(key, value, dependents,dependentType) {
-    switch (dependentType) {
-      case "CONTROL":
-        this.formFieldprep(value, dependents);
-
-        break;
-        case "FORM":
-          this.formPrep(value,dependents);
-          break;
-    
-    }
-  }
-  
-  formPrep(value: any, dependents: any) {
-    const data = { dependents: dependents, value };
- 
-    
-    
-  }
-
-  private formFieldprep(value: any, dependents: any) {
-    console.log('value--->', value);
-    this.listOfdependentFields = [];
-    this.serviceForm.groups.forEach((g) => {
-      g.fields.forEach((field) => {
-        // if (field.dependency.is === value) {
-        this.size = g.fields.length;
-        console.log('length---->', this.size);
-        dependents &&
-          dependents.forEach((dependent) => {
-
-            if (field.key === dependent) {
-              this.displayThis = true;
-              console.log('key', field.key, '-value:', dependent);
-              //  this.form.get(field.key).enable();
-              // field.dependency.notShow = false;
-              this.listOfdependentFields.push(field);
-              console.log(
-                'this.listOfdependentFields',
-                this.listOfdependentFields
-              );
-
-              //  this.input.dependency.notShow = false;
-            } else {
-              //this.form.get(field.key).disable();
-              // this.displayThis = false
-            }
-          });
-
-        // }
-      });
-    });
-    const data = { listOfdependentFields: this.listOfdependentFields, displayThis: this.displayThis, value };
+  onChange(formKey, value, dependentKeys, dependentType) {
+    const data = { formKey, dependentKeys, value, dependentType }
+    console.log("data:=========",data)
     this.dependencyFieldData.emit(data);
   }
 }
