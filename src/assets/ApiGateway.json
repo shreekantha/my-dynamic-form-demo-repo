@@ -5,7 +5,7 @@
   "svcDetails": {
     "forms": [
       {
-        "key":1,
+        "key":"1",
         "name": "HTTP APIs",
         "description": "Select the units, number, and frequency for HTTP API requests",
         "groups": [
@@ -35,7 +35,7 @@
                 ],
                 "order": 1,
                 "dependency": {},
-                "dependents": ["REST APIs"],
+                "dependents": ["2","3"],
                 "dependentType":"FORM"
 
               }
@@ -97,7 +97,7 @@
         "dependency": {}
       },
       {
-        "key":2,
+        "key":"2",
         "name": "REST APIs",
         "description": "Select the units, number, and frequency for REST API requests",
         "groups": [
@@ -165,6 +165,78 @@
         "dependency": {
           "on": "httpapi",
           "is": "Thousands",
+          "notShow": true
+        }
+      },
+      {
+        "key":"3",
+        "name": "WebScoketApi",
+        "description": "Select the units, number, and frequency for REST API requests",
+        "groups": [
+          {
+            "order": 1,
+            "fields": [
+              {
+                "controlType": "dropdown",
+                "key": "restapi",
+                "label": "Rest API requests units",
+                "options": [
+                  { "key": "exactNumber", "value": "ExactNumber" },
+                  { "key": "thousands", "value": "Thousands" },
+                  { "key": "millions", "value": "Millions" }
+                ],
+                "order": 1,
+                "dependency": {}
+              }
+            ]
+          },
+          {
+            "order": 2,
+            "fields": [
+              {
+                "controlType": "textbox",
+                "key": "restrequests",
+                "label": "Requests",
+                "required": true,
+                "order": 1,
+                "dependency": {}
+              },
+              {
+                "controlType": "dropdown",
+                "key": "restfrequency",
+                "label": "Frequency",
+                "type": "dropdown",
+                "options": [
+                  { "key": "persecond", "value": "Per Second" },
+                  { "key": "perminute", "value": "Per Minute" }
+                ],
+                "order": 2,
+                "dependency": {}
+              }
+            ]
+          },
+          {
+            "order": 3,
+            "fields": [
+              {
+                "controlType": "dropdown",
+                "key": "cacheMemSize",
+                "label": "Cache memory size (GB)",
+                "type": "dropdown",
+                "options": [
+                  { "key": "none", "value": "None" },
+                  { "key": "0.5", "value": "0.5" },
+                  { "key": "1.6", "value": "1.6" }
+                ],
+                "order": 2,
+                "dependency": {}
+              }
+            ]
+          }
+        ],
+        "dependency": {
+          "on": "httpapi",
+          "is": "Millions",
           "notShow": true
         }
       }

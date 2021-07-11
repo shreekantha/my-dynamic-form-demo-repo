@@ -59,7 +59,9 @@
                 ],
                 "order": 2,
                 "dependency": {},
-                "dependents": ["numberofreads"]
+                "dependents": ["numberofreads"],
+                "dependentType":"CONTROL"
+
               }
             ]
           },
@@ -108,7 +110,8 @@
                 ],
                 "order": 1,
                 "dependency": {},
-                "dependents": ["term", "purchaseoption", "auroraCapacity"]
+                "dependents": ["term", "purchaseoption", "auroraCapacity"],
+                "dependentType":"CONTROL"
               }
             ]
           },
@@ -126,7 +129,7 @@
                 "order": 1,
                 "dependency": {
                   "on": "pricingmodel",
-                  "is": "Reserved",
+                  "is": "OnDemand",
                   "notShow": true
                 }
               }

@@ -45,7 +45,7 @@ export class FormField<T> {
     this.dependencyOn = !!options.dependencyOn;
     this.dependency = options.dependency || {} as Dependency;
     this.dependents = options.dependents;
-    this.dependentType = options.dependentType || "CONTROL"
+    this.dependentType = options.dependentType === undefined?"CONTROL":options.dependentType;
     this.options = options.options || [];
   }
 }

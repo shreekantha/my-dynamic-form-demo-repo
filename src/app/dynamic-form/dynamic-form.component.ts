@@ -29,6 +29,7 @@ export class DynamicFormComponent implements OnInit {
   }
 
   onChange(data) {
+    //Object Destructuring
     const { dependentKeys, value, formKey, dependentType } = data;
 
     if (dependentKeys) {
@@ -40,10 +41,30 @@ export class DynamicFormComponent implements OnInit {
 
         case "FORM":
 
+        this.formPrep(dependentKeys,value);
           break;
       }
 
     }
+
+  }
+  
+  formPrep(dependentKeys: any, value: any) {
+   this.formData.svcDetails.forms.forEach(form =>{
+     console.log("form--->:",form)
+   dependentKeys.forEach(element => {
+    if(form.key === element ){
+      console.log("form.key",form.key,"element",element);
+      if(form.dependency.is === value && form.dependency.notShow){
+        form.dependency.notShow = false;
+      }else{
+        form.dependency.notShow = true;
+      }
+    }
+
+  });
+
+})
 
   }
 

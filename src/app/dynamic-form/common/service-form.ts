@@ -6,6 +6,6 @@ export class ServiceForm {
   name: string;
   description: string;
   groups: ServiceFormFieldGroup[];
-  dependency:Dependency;
+  dependency:Dependency = {} as Dependency;
 
 }
