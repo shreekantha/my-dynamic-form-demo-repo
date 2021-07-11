@@ -15,12 +15,12 @@
     <div class="row">
       <div class="col-md-12">
         <div *ngFor="let serviceForm of formData.svcDetails.forms" class="form-group">
-          <div class="card" *ngIf = "!serviceForm.dependency.notShow">
-            <div class="card-header">
-              <h4>{{ serviceForm.name }}</h4>
-              <label>{{ serviceForm.description }}</label>
-            </div>
-            <div class="card-body">
+          <mat-card *ngIf = "!serviceForm.dependency.notShow">
+            <mat-card-header>
+              <mat-card-title>{{ serviceForm.name }}</mat-card-title>
+              <mat-card-subtitle>{{ serviceForm.description }}</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
               <div>
                 <div class="row" *ngFor="let group of serviceForm.groups">
                   <div *ngFor="let formField of group.fields" [ngClass]="{
@@ -36,14 +36,14 @@
                  
                 </div>
               </div>
-            </div>
-          </div>
+            </mat-card-content>
+          </mat-card>
         </div>
       </div>
     </div>
     <div class="row">
       <div class="form-group col-md-12 text-right">
-        <button type="submit" class="btn btn-primary" [disabled]="form.invalid">
+        <button mat-button color="primary" type="submit" [disabled]="form.invalid">
           Create Estimate
         </button>
       </div>

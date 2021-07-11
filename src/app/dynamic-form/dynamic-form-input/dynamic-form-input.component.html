@@ -14,20 +14,21 @@
     <!-- {{input | json}} -->
 
     <div *ngSwitchCase="'textbox'">
-      <div *ngIf="!input.dependency.notShow">
-        <label [attr.for]="input.key">{{ input.label }}</label>
+      <mat-form-field *ngIf="!input.dependency.notShow">
+        <mat-label [attr.for]="input.key">{{ input.label }}</mat-label>
         <input
+        matInput 
           class="form-control"
           [formControlName]="input.key"
           [id]="input.key"
           [type]="input.type"
         />
-        <div *ngIf="form.get(input.key).dirty || form.get(input.key).touched">
+        <mat-error *ngIf="form.get(input.key).dirty || form.get(input.key).touched">
           <small style="color: red" *ngIf="!form.get(input.key).valid">
             {{ input.label }} is Required
           </small>
-        </div>
-      </div>
+        </mat-error>
+      </mat-form-field>
     </div>
 
     <div *ngSwitchCase="'dropdown'">
@@ -78,7 +79,7 @@
     </div>
 
     <div *ngSwitchCase="'radio'">
-      <div *ngIf="!input.dependency.notShow">
+      <mat-radio-group *ngIf="!input.dependency.notShow">
         <div
           class="form-check form-check-inline"
           *ngFor="let opt of input.options"
@@ -109,7 +110,7 @@
             {{ input.label }} is Required
           </small>
         </div>
-      </div>
+      </mat-radio-group>
     </div>
 
     <div *ngSwitchCase="'textarea'">
