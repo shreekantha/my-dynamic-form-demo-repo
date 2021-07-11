@@ -18,6 +18,9 @@ import { MatListModule } from '@angular/material/list';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
+import {MatRadioModule} from '@angular/material/radio';
+
 
 
 @NgModule({
@@ -42,6 +45,8 @@ import {MatInputModule} from '@angular/material/input';
     MatInputModule,
     MatIconModule,
     MatListModule,
+    MatRadioModule,
+    MatSelectModule,
     BrowserAnimationsModule,
   ],
   providers: [],
