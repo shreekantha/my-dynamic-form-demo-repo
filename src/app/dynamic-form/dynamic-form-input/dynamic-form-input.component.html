@@ -38,7 +38,7 @@
             [id]="input.key"
             [formControlName]="input.key"
             (change)="
-              onChange(input.key, $event.target.value, input.dependents)
+              onChange(input.key, $event.target.value, input.dependents,input.dependentType)
             "
           >
             <option *ngFor="let opt of input.options" [value]="opt.value">

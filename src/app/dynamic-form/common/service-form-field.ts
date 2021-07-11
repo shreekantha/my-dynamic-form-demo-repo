@@ -11,7 +11,8 @@ export class FormField<T> {
     type: string;
     rowDivision:number;
     dependency:Dependency;
-    dependents:string[]
+    dependents:string[];
+    dependentType:string;
     dependencyOn:boolean;
     options: { key: string; value: string }[];
   
@@ -29,6 +30,7 @@ export class FormField<T> {
         dependency?:Dependency;
         dependents?:string[];
         dependencyOn?:boolean;
+        dependentType?:string;
         options?: { key: string; value: string }[];
       } = {}
     ) {
@@ -45,5 +47,6 @@ export class FormField<T> {
       this.dependency = options.dependency;
       this.dependents = options.dependents;
       this.options = options.options || [];
+      this.dependentType = options.dependentType || "CONTROL";
     }
   }

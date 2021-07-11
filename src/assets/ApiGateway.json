@@ -5,6 +5,7 @@
   "svcDetails": {
     "forms": [
       {
+        "key":1,
         "name": "HTTP APIs",
         "description": "Select the units, number, and frequency for HTTP API requests",
         "groups": [
@@ -33,7 +34,10 @@
                   { "key": "millions", "value": "Millions" }
                 ],
                 "order": 1,
-                "dependency": {}
+                "dependency": {},
+                "dependents": ["REST APIs"],
+                "dependentType":"FORM"
+
               }
             ]
           },
@@ -90,10 +94,10 @@
             ]
           }
         ],
-        "dependency": {},
-        "dependents": ["REST APIs"]
+        "dependency": {}
       },
       {
+        "key":2,
         "name": "REST APIs",
         "description": "Select the units, number, and frequency for REST API requests",
         "groups": [

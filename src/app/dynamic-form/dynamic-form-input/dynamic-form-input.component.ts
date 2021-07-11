@@ -27,7 +27,27 @@ export class DynamicFormInputComponent {
     return true;
   }
 
-  onChange(key, value, dependents) {
+  onChange(key, value, dependents,dependentType) {
+    switch (dependentType) {
+      case "CONTROL":
+        this.formFieldprep(value, dependents);
+
+        break;
+        case "FORM":
+          this.formPrep(value,dependents);
+          break;
+    
+    }
+  }
+  
+  formPrep(value: any, dependents: any) {
+    const data = { dependents: dependents, value };
+ 
+    
+    
+  }
+
+  private formFieldprep(value: any, dependents: any) {
     console.log('value--->', value);
     this.listOfdependentFields = [];
     this.serviceForm.groups.forEach((g) => {
@@ -59,7 +79,7 @@ export class DynamicFormInputComponent {
         // }
       });
     });
-    const data = { listOfdependentFields: this.listOfdependentFields, displayThis: this.displayThis, value }
+    const data = { listOfdependentFields: this.listOfdependentFields, displayThis: this.displayThis, value };
     this.dependencyFieldData.emit(data);
   }
 }
