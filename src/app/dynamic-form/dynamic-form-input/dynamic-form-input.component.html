@@ -83,7 +83,9 @@
           class="form-check form-check-inline"
           *ngFor="let opt of input.options"
         >
+        <!-- {{input | json}} -->
           <input
+          [attr.checked] = "opt.checked"
             class="form-check-input"
             [value]="opt.value"
             type="radio"
@@ -92,7 +94,7 @@
             (click)="
               onChange(
                 serviceForm.key,
-                $event.target.value,
+                opt.value,
                 input.dependents,
                 input.dependentType
               )

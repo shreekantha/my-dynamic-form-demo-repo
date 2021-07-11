@@ -19,21 +19,31 @@
                 "type": "radio",
                 "order": 2,
                 "dependency": {},
-                "dependents": ["mySql", "aurora"],
+                "dependents": ["mysql", "aurora"],
                 "options": [
-                  { "key": "mySql", "value": "Mysql" },
-                  { "key": "aurora", "value": "Aurora" },
-                  { "key": "perMonth", "value": "Per Month" }
-                ]
+                  { "key": "mySql", "value": "mysql" ,"checked":true},
+                  { "key": "aurora", "value": "aurora","checked":false },
+                  { "key": "perMonth", "value": "Per Month","checked":false }
+                ],
+                "dependentType":"FORM"
+
               }
             ]
           }
-        ]
+        ],
+        "dependency": {}
+
       },
       {
+        
         "key": "aurora",
         "name": "Database Storage",
         "description": "",
+        "dependency": {
+          "on": "storageamount1",
+          "is": "aurora",
+          "notShow": true
+        },
         "groups": [
           {
             "order": 1,
@@ -178,6 +188,11 @@
         "key": "mysql",
         "name": "mysql Database Storage",
         "description": "",
+        "dependency": {
+          "on": "storageamount1",
+          "is": "mysql",
+          "notShow": true
+        },
         "groups": [
           {
             "order": 1,

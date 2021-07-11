@@ -14,7 +14,8 @@ export class FormField<T> {
   dependents: string[]
   dependentType: string;
   dependencyOn: boolean;
-  options: { key: string; value: string }[];
+  checked:boolean;
+  options: { key: string; value: string; checked?:boolean}[];
 
   constructor(
     options: {
@@ -30,6 +31,7 @@ export class FormField<T> {
       dependency?: Dependency;
       dependents?: string[]; dependentType?: string;
       dependencyOn?: boolean;
+      checked?:boolean;
       options?: { key: string; value: string }[];
     } = {}
   ) {
@@ -47,5 +49,6 @@ export class FormField<T> {
     this.dependents = options.dependents;
     this.dependentType = options.dependentType === undefined?"CONTROL":options.dependentType;
     this.options = options.options || [];
+    this.checked = !!options.checked;
   }
 }

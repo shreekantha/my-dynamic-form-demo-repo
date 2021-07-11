@@ -52,9 +52,12 @@ export class DynamicFormComponent implements OnInit {
   formPrep(dependentKeys: any, value: any) {
    this.formData.svcDetails.forms.forEach(form =>{
      console.log("form--->:",form)
+     console.log("dependentKeys--->",dependentKeys)
    dependentKeys.forEach(element => {
     if(form.key === element ){
-      console.log("form.key",form.key,"element",element);
+      console.log("form.key--->",form.key,"element--->",element);
+      console.log("form.dependency.is--->",form.dependency.is,"value--->",value);
+
       if(form.dependency.is === value && form.dependency.notShow){
         form.dependency.notShow = false;
       }else{
