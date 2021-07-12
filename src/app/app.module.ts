@@ -20,6 +20,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {MatRadioModule} from '@angular/material/radio';
+import {FlexLayoutModule} from '@angular/flex-layout';
 
 
 
@@ -47,6 +48,7 @@ import {MatRadioModule} from '@angular/material/radio';
     MatListModule,
     MatRadioModule,
     MatSelectModule,
+    FlexLayoutModule,
     BrowserAnimationsModule,
   ],
   providers: [],

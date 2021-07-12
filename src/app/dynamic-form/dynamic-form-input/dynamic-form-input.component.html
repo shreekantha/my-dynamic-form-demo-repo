@@ -10,11 +10,11 @@
       'form-group': true
     }"
   > -->
-  <div [ngSwitch]="input.controlType">
+  <div [ngSwitch]="input.controlType" >
     <!-- {{input | json}} -->
-
+<div  class="abc">
     <div *ngSwitchCase="'textbox'">
-      <mat-form-field *ngIf="!input.dependency.notShow">
+      <mat-form-field class="full-width" *ngIf="!input.dependency.notShow">
         <mat-label [attr.for]="input.key">{{ input.label }}</mat-label>
         <input
         matInput 
@@ -32,7 +32,7 @@
     </div>
 
     <div *ngSwitchCase="'dropdown'">
-      <mat-form-field *ngIf="!input.dependency.notShow">
+      <mat-form-field  class="full-width" *ngIf="!input.dependency.notShow">
         <mat-label [attr.for]="input.key">{{ input.label }}</mat-label>
         <mat-select
           [id]="input.key"
@@ -113,6 +113,7 @@
       </div>
     </div>
   </div>
+</div>
   <!-- </div> -->
   <!--Second Part -->
 

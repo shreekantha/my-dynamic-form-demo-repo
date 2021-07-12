@@ -1,46 +1,38 @@
-<div class="container">
-  <form (ngSubmit)="onSubmit()" [formGroup]="form" class="form-group">
-    <div class="row">
+<div class="container" class="body">
+  <form (ngSubmit)="onSubmit()" [formGroup]="form" >
+    <div class="flex-container" fxLayout="column">
       <div class="col-md-12">&nbsp;</div>
     </div>
-    <div class="row">
+    <div class="flex-container" fxLayout="column">
       <div class="col-md-12">
         <h3>{{ formData.svcName }}</h3>
-        <!-- <label>{{ formData.description }}</label> -->
       </div>
     </div>
-    <div class="row">
-      <div class="col-md-12">&nbsp;</div>
-    </div>
-    <div class="row">
-      <div class="col-md-12">
+    <div class="container">
+
         <div *ngFor="let serviceForm of formData.svcDetails.forms" class="form-group">
-          <mat-card *ngIf = "!serviceForm.dependency.notShow">
+          <mat-card class="mat-card" *ngIf = "!serviceForm.dependency.notShow">
             <mat-card-header>
+          
               <mat-card-title>{{ serviceForm.name }}</mat-card-title>
               <mat-card-subtitle>{{ serviceForm.description }}</mat-card-subtitle>
             </mat-card-header>
+            <divider></divider>
             <mat-card-content>
-              <div>
-                <div class="row" *ngFor="let group of serviceForm.groups">
-                  <div *ngFor="let formField of group.fields" [ngClass]="{
-                    'col-sm-12 col-md-12': group.fields.length == 1,
-                    'col-sm-12 col-md-6': group.fields.length == 2,
-                    'col-sm-12 col-md-4': group.fields.length == 3,
-                    'col-sm-12 col-md-3': group.fields.length == 4,
-                    'form-group': true
-                  }">
+              <!-- <div class="container"> -->
+                <div class="flex-container" fxLayout="row" fxLayout.xs="column" *ngFor="let group of serviceForm.groups">
+                  <div fxFlex="1 1 auto" *ngFor="let formField of group.fields" >
                     <FormInput  [group]="group" [serviceForm]="serviceForm" [input]="formField"
                       [form]="form" (dependencyFieldData)="onChange($event)"></FormInput>
                   </div>
                  
                 </div>
-              </div>
+              <!-- </div> -->
             </mat-card-content>
           </mat-card>
         </div>
-      </div>
     </div>
+     
     <div class="row">
       <div class="form-group col-md-12 text-right">
         <button mat-button color="primary" type="submit" [disabled]="form.invalid">
