@@ -178,7 +178,7 @@
             "fields": [
               {
                 "controlType": "dropdown",
-                "key": "restapi",
+                "key": "websocketapi",
                 "label": "Rest API requests units",
                 "options": [
                   { "key": "exactNumber", "value": "ExactNumber" },
@@ -195,7 +195,7 @@
             "fields": [
               {
                 "controlType": "textbox",
-                "key": "restrequests",
+                "key": "websocketrestrequests",
                 "label": "Requests",
                 "required": true,
                 "order": 1,
@@ -203,7 +203,7 @@
               },
               {
                 "controlType": "dropdown",
-                "key": "restfrequency",
+                "key": "websocketfrequency",
                 "label": "Frequency",
                 "type": "dropdown",
                 "options": [
@@ -220,7 +220,7 @@
             "fields": [
               {
                 "controlType": "dropdown",
-                "key": "cacheMemSize",
+                "key": "websocketcacheMemSize",
                 "label": "Cache memory size (GB)",
                 "type": "dropdown",
                 "options": [

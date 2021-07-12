@@ -21,9 +21,9 @@
                 "dependency": {},
                 "dependents": ["mysql", "aurora"],
                 "options": [
-                  { "key": "mySql", "value": "mysql" ,"checked":true},
-                  { "key": "aurora", "value": "aurora","checked":false },
-                  { "key": "perMonth", "value": "Per Month","checked":false }
+                  { "key": "sql", "value": "mysql" ,"checked":true},
+                  { "key": "au", "value": "aurora","checked":false },
+                  { "key": "pm", "value": "Per Month","checked":false }
                 ],
                 "dependentType":"FORM"
 

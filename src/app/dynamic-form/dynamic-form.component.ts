@@ -50,18 +50,44 @@ export class DynamicFormComponent implements OnInit {
   }
   
   formPrep(dependentKeys: any, value: any) {
-   this.formData.svcDetails.forms.forEach(form =>{
-     console.log("form--->:",form)
-     console.log("dependentKeys--->",dependentKeys)
    dependentKeys.forEach(element => {
-    if(form.key === element ){
-      console.log("form.key--->",form.key,"element--->",element);
-      console.log("form.dependency.is--->",form.dependency.is,"value--->",value);
+    this.formData.svcDetails.forms.forEach(formField =>{
 
-      if(form.dependency.is === value && form.dependency.notShow){
-        form.dependency.notShow = false;
+    if(formField.key === element ){
+    
+      if(formField.dependency.is === value && formField.dependency.notShow){
+        formField.dependency.notShow = false;
+console.log("coming in notshow false ")
+       const serviceForm =  this.formData.svcDetails.forms.find(frm =>frm.key === element)
+       console.log("serviceForm",serviceForm.key)
+       serviceForm.groups
+        .forEach(group => {
+          console.log("coming in notshow false group:",group)
+
+          group.fields.forEach(field=>{
+            this.form.get(field.key).enable();
+
+          })
+          
+        });
+      
+
       }else{
-        form.dependency.notShow = true;
+        formField.dependency.notShow = true;
+        console.log("coming here")
+        const serviceForm = this.formData.svcDetails.forms.find(frm =>frm.key === element)
+        console.log("serviceForm else",serviceForm.key)
+
+        serviceForm.groups.forEach(group => {
+          console.log("form----->",group);
+          group.fields.forEach(field=>{
+            console.log("field.key",field.key);
+            this.form.get(field.key).disable();
+
+          })
+          
+        });
+        
       }
     }
 
@@ -69,6 +95,7 @@ export class DynamicFormComponent implements OnInit {
 
 })
 
+console.log("formm--->",this.form);
   }
 
   private formFieldPrep(formKey: any, dependentKeys: any, value: any) {
@@ -83,8 +110,12 @@ export class DynamicFormComponent implements OnInit {
               console.log("dependentKey.dependency.is === elem.value && ", elem.dependency.is, "===", value);
               if (elem.dependency.is === value && elem.dependency.notShow) {
                 elem.dependency.notShow = false;
+                this.form.get(elem.key).enable();
+
               } else {
                 elem.dependency.notShow = true;
+                this.form.get(elem.key).disable();
+
               }
             }
 
