@@ -21,6 +21,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {MatRadioModule} from '@angular/material/radio';
 import {FlexLayoutModule} from '@angular/flex-layout';
+import { ErrorMessageComponent } from './dynamic-form/error-message/error-message.component';
 
 
 
@@ -32,6 +33,7 @@ import {FlexLayoutModule} from '@angular/flex-layout';
     DynamicFormMainComponentComponent,
     HomeComponent,
     SideNavComponent,
+    ErrorMessageComponent
   ],
   imports: [
     BrowserModule,

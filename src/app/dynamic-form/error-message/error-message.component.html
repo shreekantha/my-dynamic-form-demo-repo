@@ -1,1 +1,9 @@
-<p>error-message works!</p>
+<small style="color: red" *ngIf="form.get(input.key).errors.required">
+    {{ input.label }} is Required
+  </small>
+  <small style="color: red" *ngIf="form.get(input.key).errors.minlength">
+    {{ input.label }} must be minmum 10 characters.
+  </small>
+  <small style="color: red" *ngIf="form.get(input.key).errors.maxlength">
+    {{ input.label }} must be maximun 11 characters.
+  </small>
