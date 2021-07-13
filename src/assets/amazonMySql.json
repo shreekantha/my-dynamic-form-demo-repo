@@ -14,7 +14,7 @@
             "fields": [
               {
                 "controlType": "radio",
-                "key": "storageamount1",
+                "key": "templateOne",
                 "label": "Frequency",
                 "type": "radio",
                 "order": 2,
@@ -40,7 +40,7 @@
         "name": "Database Storage",
         "description": "",
         "dependency": {
-          "on": "storageamount1",
+          "on": "templateOne",
           "is": "aurora",
           "notShow": true
         },
@@ -189,7 +189,7 @@
         "name": "mysql Database Storage",
         "description": "",
         "dependency": {
-          "on": "storageamount1",
+          "on": "templateOne",
           "is": "mysql",
           "notShow": true
         },
