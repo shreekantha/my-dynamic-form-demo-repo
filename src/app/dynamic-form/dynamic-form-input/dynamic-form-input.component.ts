@@ -20,10 +20,10 @@ export class DynamicFormInputComponent {
   displayThis = false;
   size: any;
   constructor() {
-    //console.log('---------', this.group);
+    // console.log(' ---------', this.group);
   }
   get isValid() {
-    //return this.form.controls[input.key].valid;
+    return this.form.controls[this.input.key].valid;
     return true;
   }
 
@@ -31,5 +31,6 @@ export class DynamicFormInputComponent {
     const data = { formKey, dependentKeys, value, dependentType }
     console.log("data:=========",data)
     this.dependencyFieldData.emit(data);
+  
   }
 }
