@@ -53,7 +53,6 @@
                 "label": "Storage amount",
                 "controlType": "textbox",
                 "required": true,
-                "validator": "storageamount",
                 "type": "textbox",
                 "order": 1,
                 "dependency": {}
@@ -202,7 +201,6 @@
                 "label": "Storage amount",
                 "controlType": "textbox",
                 "required": true,
-                "validator": "storageamount",
                 "type": "textbox",
                 "order": 1,
                 "dependency": {}
