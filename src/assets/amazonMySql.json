@@ -1,7 +1,7 @@
 {
-  "svcName": "Configure Amazon Aurora MySQL-Compatible template",
-  "svcCode": "1001",
-  "description": "API Gateway",
+  "svcName": "Amazon Aurora MySQL-Compatible template",
+  "svcCode": "1002",
+  "description": "Amazon Aurora MySQL Compatible relational database is built for the cloud, that combines performance and availability of traditional enterprise databases with the simplicity and cost-effectiveness of open source databases.",
   "svcDetails": {
     "forms": [
       {
@@ -20,29 +20,28 @@
                 "order": 2,
                 "dependency": {},
                 "dependents": ["mysql", "aurora"],
+                "dependentType": "FORM",
                 "options": [
-                  { "key": "sql", "value": "mysql" ,"checked":true},
-                  { "key": "au", "value": "aurora","checked":false },
-                  { "key": "pm", "value": "Per Month","checked":false }
-                ],
-                "dependentType":"FORM"
-                
-
+                  { "key": "sql", "value": "mysql", "checked": true },
+                  {
+                    "key": "au",
+                    "value": "mysql-server-less",
+                    "checked": false
+                  }
+                ]
               }
             ]
           }
         ],
         "dependency": {}
-
       },
       {
-        
-        "key": "aurora",
-        "name": "Database Storage",
+        "key": "mysql",
+        "name": "MySQL Compatible instances",
         "description": "",
         "dependency": {
           "on": "templateOne",
-          "is": "aurora",
+          "is": "mysql",
           "notShow": true
         },
         "groups": [
@@ -57,10 +56,10 @@
                 "type": "textbox",
                 "order": 1,
                 "dependency": {},
-                "validator":{
-                  "required":true,
-                  "minLength":10,
-                  "maxLength":11
+                "validator": {
+                  "required": true,
+                  "minLength": 10,
+                  "maxLength": 11
                 }
               },
               {
@@ -75,12 +74,10 @@
                 "order": 2,
                 "dependency": {},
                 "dependents": ["numberofreads"],
-                "dependentType":"CONTROL",
-                "validator":{
-                  "required":true
-  
+                "dependentType": "CONTROL",
+                "validator": {
+                  "required": true
                 }
-
               }
             ]
           },
@@ -98,9 +95,8 @@
                   "on": "frequency",
                   "is": "Per Week",
                   "notShow": true,
-                  "validator":{
-                    "required":true
-                  
+                  "validator": {
+                    "required": true
                   }
                 }
               }
@@ -117,10 +113,10 @@
                 "order": 1,
                 "type": "textbox",
                 "dependency": {},
-                "validator":{
-                  "required":true,
-                  "minLength":10,
-                  "maxLength":11
+                "validator": {
+                  "required": true,
+                  "minLength": 10,
+                  "maxLength": 11
                 }
               }
             ]
@@ -139,10 +135,9 @@
                 "order": 1,
                 "dependency": {},
                 "dependents": ["term", "purchaseoption", "auroraCapacity"],
-                "dependentType":"CONTROL",
-                "validator":{
-                  "required":true
- 
+                "dependentType": "CONTROL",
+                "validator": {
+                  "required": true
                 }
               }
             ]
@@ -159,9 +154,8 @@
                   { "key": "3yr", "value": "3yr" }
                 ],
                 "order": 1,
-                "validator":{
-                  "required":true
-     
+                "validator": {
+                  "required": true
                 },
                 "dependency": {
                   "on": "pricingmodel",
@@ -184,9 +178,8 @@
                   { "key": "noupfront", "value": "No upfront" }
                 ],
                 "order": 1,
-                "validator":{
-                  "required":true
-               
+                "validator": {
+                  "required": true
                 },
                 "dependency": {
                   "on": "pricingmodel",
@@ -204,10 +197,10 @@
                 "key": "auroraCapacity",
                 "label": "Number of Aurora Capacity Units (ACUs)",
                 "order": 1,
-                "validator":{
-                  "required":true,
-                  "minLength":10,
-                  "maxLength":11
+                "validator": {
+                  "required": true,
+                  "minLength": 10,
+                  "maxLength": 11
                 },
                 "dependency": {
                   "on": "pricingmodel",
@@ -220,12 +213,12 @@
         ]
       },
       {
-        "key": "mysql",
-        "name": "mysql Database Storage",
+        "key": "aurora",
+        "name": "MySql Serverless Database Storage",
         "description": "",
         "dependency": {
           "on": "templateOne",
-          "is": "mysql",
+          "is": "mysql-server-less",
           "notShow": true
         },
         "groups": [
@@ -240,10 +233,10 @@
                 "type": "textbox",
                 "order": 1,
                 "dependency": {},
-                "validator":{
-                  "required":true,
-                  "minLength":10,
-                  "maxLength":11
+                "validator": {
+                  "required": true,
+                  "minLength": 10,
+                  "maxLength": 11
                 }
               }
             ]
@@ -259,10 +252,10 @@
                 "order": 1,
                 "type": "textbox",
                 "dependency": {},
-                "validator":{
-                  "required":true,
-                  "minLength":10,
-                  "maxLength":11
+                "validator": {
+                  "required": true,
+                  "minLength": 10,
+                  "maxLength": 11
                 }
               }
             ]
@@ -278,10 +271,10 @@
                 "order": 1,
                 "type": "textbox",
                 "dependency": {},
-                "validator":{
-                  "required":true,
-                  "minLength":10,
-                  "maxLength":11
+                "validator": {
+                  "required": true,
+                  "minLength": 10,
+                  "maxLength": 11
                 }
               }
             ]
@@ -292,7 +285,7 @@
             "fields": [
               {
                 "controlType": "dropdown",
-                "key": "name",
+                "key": "name1",
                 "label": "name",
                 "options": [
                   { "key": "1yr", "value": "1yr" },
@@ -300,9 +293,87 @@
                 ],
                 "order": 1,
                 "dependency": {},
-                "validator":{
-                  "required":true
-                
+                "validator": {
+                  "required": true
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "database-storage",
+        "name": "Database Storage",
+        "description": "",
+        "dependency": {},
+        "groups": [
+          {
+            "order": 1,
+            "fields": [
+              {
+                "key": "storageamount12",
+                "label": "Storage amount",
+                "controlType": "textbox",
+                "required": true,
+                "type": "number",
+                "order": 1,
+                "dependency": {},
+                "validator": {
+                  "required": true,
+                  "minLength": 10,
+                  "maxLength": 11
+                }
+              },
+              {
+                "controlType": "dropdown",
+                "key": "frequency12",
+                "label": "Frequency",
+                "options": [
+                  { "key": "perDay", "value": "Per Day" },
+                  { "key": "perWeek", "value": "Per Week" },
+                  { "key": "perMonth", "value": "Per Month" }
+                ],
+                "order": 2,
+                "dependency": {},
+
+                "validator": {
+                  "required": true
+                }
+              }
+            ]
+          },
+          {
+            "order": 2,
+            "fields": [
+              {
+                "key": "numberofreads12",
+                "label": "Number of reads per second",
+                "controlType": "textbox",
+
+                "order": 1,
+                "type": "number",
+
+                "validator": {
+                  "required": true
+                }
+              }
+            ]
+          },
+          {
+            "order": 3,
+            "fields": [
+              {
+                "key": "numberofwrites12",
+                "label": "Number of writes per second",
+                "controlType": "textbox",
+                "required": true,
+                "order": 1,
+                "type": "number",
+                "dependency": {},
+                "validator": {
+                  "required": true,
+                  "minLength": 10,
+                  "maxLength": 11
                 }
               }
             ]
